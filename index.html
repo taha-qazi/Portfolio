@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07080b">
+  <title>Taha Bin Yousuf — The Stack</title>
+  <meta name="description"
+    content="Full-Stack Systems Engineer, AI Developer & Co-Founder at SKETCH2STACK. A cinematic scroll film through the software stack.">
+  <meta property="og:title" content="Taha Bin Yousuf — The Stack">
+  <meta property="og:description" content="From initial sketch down to the lowest metal in the stack. Eleven layers. One continuous camera shot.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 29,10 29,22 16,29 3,22 3,10' fill='none' stroke='%2300f5a0' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%2300f5a0'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css?v=24">
+</head>
+
+<body>
+
+  <!-- Opening slate -->
+  <div class="slate-screen" id="slate">
+    <p class="slate-line slate-1">TAHA BIN YOUSUF</p>
+    <p class="slate-line slate-2">from initial sketch to production stack</p>
+  </div>
+
+  <!-- Scene canvas (the film) -->
+  <canvas id="scene" aria-hidden="true" tabindex="-1"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <canvas id="grain" aria-hidden="true" tabindex="-1"></canvas>
+
+  <!-- Letterbox bars -->
+  <div class="bar bar-top" aria-hidden="true"></div>
+  <div class="bar bar-bottom" aria-hidden="true"></div>
+
+  <!-- Film HUD -->
+  <header class="hud" aria-hidden="true">
+    <div class="hud-item hud-tl">TAHA BIN YOUSUF &nbsp;·&nbsp; COMSATS LAHORE '27</div>
+    <div class="hud-item hud-bl" id="hud-chapter">LAYER 00 · THE REEL</div>
+    <div class="hud-item hud-br"><span id="hud-prog">000</span>% DEPTH</div>
+  </header>
+  <div class="progress" aria-hidden="true">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <nav class="dots" id="dots" aria-label="Stack Layers"></nav>
+
+  <!-- Background score: 'Adrift' by Scott Buckley -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="soundtrack.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Controls Cluster -->
+  <div class="controls-cluster">
+    <a href="Taha_Bin_Yousuf_CV.pdf" download="Taha_Bin_Yousuf_CV.pdf" class="cv-btn" aria-label="Download CV">
+      <svg class="autoplay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+      <span>CV</span>
+    </a>
+
+    <button class="autoplay-btn" id="autoplay-btn" aria-label="Auto-scroll through stack layers">
+      <svg class="autoplay-icon play-icon" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="6,4 20,12 6,20" />
+      </svg>
+      <svg class="autoplay-icon pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+        <rect x="5" y="4" width="4" height="16" rx="1" />
+        <rect x="15" y="4" width="4" height="16" rx="1" />
+      </svg>
+      <span>AUTO</span>
+    </button>
+
+    <button class="mute-btn" id="mute-btn" aria-label="Toggle soundtrack">
+      <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" opacity="0.3" />
+        <path d="M11 5L6 9H2v6h4l5 4V5z" />
+        <path d="M15.54 8.46a5 5 0 010 7.07" />
+        <path d="M18.36 5.64a9 9 0 010 12.73" />
+      </svg>
+      <span class="mute-eq">
+        <i></i><i></i><i></i><i></i>
+      </span>
+    </button>
+  </div>
+
+  <main id="film">
+
+    <!-- LAYER 00: THE REEL -->
+    <section class="chapter hero active" data-scene="hero" data-label="LAYER 00 · THE REEL" data-year="2023 → 2027" data-accent="#00f5a0">
+      <div class="pin">
+        <div class="inner center">
+          <p class="kicker reveal" style="--d:.1s">LAHORE, PAKISTAN &nbsp;·&nbsp; COMSATS UNIVERSITY &nbsp;·&nbsp; CLASS OF '27</p>
+          <h1 class="name reveal" style="--d:.12s">TAHA BIN<br>YOUSUF</h1>
+          <div class="roles-row reveal" style="--d:.26s">
+            <span>Full-Stack Systems Engineer</span>
+            <i class="dot-sep"></i>
+            <span>AI/ML Developer</span>
+            <i class="dot-sep"></i>
+            <span>Co-Founder, SKETCH2STACK</span>
+          </div>
+          <p class="serif reveal" style="--d:.4s">From initial sketch down to the lowest metal in the stack.</p>
+          <div class="scroll-cue reveal" style="--d:.6s"><span>SCROLL TO ENTER THE STACK</span><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 01: ACADEMIC CORE -->
+    <section class="chapter" data-scene="academic-core" data-label="LAYER 01 · COMPUTATIONAL FOUNDATIONS" data-year="2024 – 2026" data-accent="#00f5a0">
+      <div class="pin">
+        <div class="num" aria-hidden="true">01</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 01 &nbsp;·&nbsp; COMPUTATIONAL FOUNDATIONS &nbsp;·&nbsp; 2024 – 2026</p>
+          <h2 class="title reveal" style="--d:.08s">Core Systems, Databases &amp; Parallel Metal</h2>
+          <p class="serif reveal" style="--d:.16s">From clean object-oriented architecture down to high-performance parallel compute kernels.</p>
+          <p class="lede reveal" style="--d:.24s">Progressing from fundamental object-oriented software engineering to normalized relational databases and high-performance multithreaded computing in C++.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Object-Oriented Architecture (Java OOP · 2024)</strong> — <em>Cosmetic Shop Management System</em>: Desktop enterprise GUI application applying core OOP principles (encapsulation, inheritance, polymorphism, and abstraction) for product inventory tracking, supplier ledgers, and cashier sales recording.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Relational Database Modeling &amp; ACID Transactions (SQL · 2025)</strong> — <em>Online Order &amp; Inventory Management System</em>: Designed and normalized a relational database schema (3NF/BCNF) with structured PK/FK constraints across customers, categories, products, multi-tier orders, and payment ledgers with transactional integrity.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>High-Performance Parallel Computing (C++ &amp; OpenMP · 2026)</strong> — <em>Parallel Linear Regression Matrix Suite</em>: High-throughput parallel computing suite in C++ utilizing OpenMP multithreading to parallelize cost function calculations and batch gradient descent across large matrices, delivering real-time convergence benchmarking and multi-core speedup metrics.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>JAVA OOP</span><span>RELATIONAL SQL</span><span>C++ &amp; OPENMP</span><span>PARALLEL COMPUTING</span><span>HIGH-PERFORMANCE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 02: FULL-STACK & MOBILE -->
+    <section class="chapter" data-scene="academic-web" data-label="LAYER 02 · FULL-STACK &amp; MOBILE" data-year="2025 – 2026" data-accent="#00d2ff">
+      <div class="pin">
+        <div class="num" aria-hidden="true">02</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 02 &nbsp;·&nbsp; ACADEMIC PLATFORMS &nbsp;·&nbsp; 2025 – 2026</p>
+          <h2 class="title reveal" style="--d:.08s">Modern Web, Mobile &amp; Payments</h2>
+          <p class="serif reveal" style="--d:.16s">Full-stack server architectures, mobile cross-platform apps, and integrated payment gateways.</p>
+          <p class="lede reveal" style="--d:.24s">Translating software engineering principles into production platforms: architecting responsive mobile interfaces in Flutter alongside modern Next.js server-side web applications and dual payment infrastructure.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Cross-Platform Mobile Engineering (Flutter &amp; Firebase · 2025)</strong> — <em>CozyNest E-Commerce App</em>: Cross-platform mobile shopping application built with Flutter &amp; Firebase. Implemented secure Firebase Authentication, Firestore real-time inventory synchronization, dynamic product catalogs, and stateful checkout cart.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Full-Stack Web &amp; Payment Gateways (MERN · 2025)</strong> — <em>Movie Recommendation &amp; Streaming Hub</em>: Full-stack recommendation web app with complete CRUD user profiles, personalized recommendation filtering, MongoDB aggregation pipelines, and dual payment gateways (Stripe + localized JazzCash / EasyPaisa).</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Modern Server-Side Web Engineering (Next.js 15+ App Router · 2026)</strong> — <em>Fitness Club Enterprise Management System</em>: Production-grade full-stack web application. Migrated legacy Express backends to Next.js App Router, designed RESTful APIs, Mongoose schema validation, dynamic server routing, and automated Vercel CI/CD pipelines.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>FLUTTER MOBILE</span><span>FIREBASE REALTIME</span><span>MONGODB &amp; STRIPE</span><span>NEXT.JS APP ROUTER</span><span>REST APIS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 03: NEURAL FRONTIER: DIVA.AI -->
+    <section class="chapter" data-scene="diva" data-label="LAYER 03 · NEURAL FRONTIER" data-year="FEB 2026 – PRESENT" data-accent="#ec4899">
+      <div class="pin">
+        <div class="num" aria-hidden="true">03</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 03 &nbsp;·&nbsp; CAPSTONE FYP &nbsp;·&nbsp; FEB 2026 – PRESENT</p>
+          <h2 class="title reveal" style="--d:.08s">Diva.ai — AI Bridal Virtual Try-On</h2>
+          <p class="serif reveal" style="--d:.16s">Bridging South Asian heritage couture with real-time computer vision — as a collaborative team FYP.</p>
+          <p class="lede reveal" style="--d:.24s">Final Year Project at COMSATS University Islamabad, Lahore Campus. Working in a divided team: personally responsible for the conversational AI chatbot, database schema design, and backend RESTful API engineering — enabling the virtual try-on and e-commerce platform.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Conversational AI Chatbot</strong> — Designed and integrated an AI-powered styling assistant chatbot to guide users through bridal selections and virtual try-on flows, with context-aware recommendation logic.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Database Architecture</strong> — Designed and normalized the database schema for multi-vendor bridal inventory, user styling profiles, order management, and garment metadata to support the full platform lifecycle.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Backend API Engineering</strong> — Building scalable RESTful backend APIs and microservices under Agile sprints, connecting the virtual try-on ML pipeline, e-commerce flows, and frontend interfaces.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>MACHINE LEARNING</span><span>COMPUTER VISION</span><span>PYTORCH</span><span>FASTAPI</span><span>COMSATS FYP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 04: INDUSTRY TELEMETRY -->
+    <section class="chapter" data-scene="internships" data-label="LAYER 04 · INDUSTRY TELEMETRY" data-year="AUG 2026 – OCT 2026" data-accent="#00f5a0">
+      <div class="pin">
+        <div class="num" aria-hidden="true">04</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 04 &nbsp;·&nbsp; INDUSTRY EXPERIENCE &nbsp;·&nbsp; AUG 2026 – OCT 2026</p>
+          <h2 class="title reveal" style="--d:.08s">Enterprise Production Internships</h2>
+          <p class="serif reveal" style="--d:.16s">Three rigorous industry roles across Machine Learning, AI Engineering, and Full-Stack Web Development.</p>
+          <p class="lede reveal" style="--d:.24s">Hardened in commercial software pipelines: architecting scalable features, deploying machine learning algorithms, and collaborating with cross-functional engineering teams during an intensive 2026 season.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Solution A &amp; I — Full-Stack Python Engineer Intern (Aug–Oct 2026 · Remote)</strong> — Led Django REST API migration from a legacy Laravel fleet-management backend: built complete dispatch, delivery, CSV bulk-import, vehicle, and user-auth endpoints; engineered a fleet telematics analytics engine with 18+ reporting routes (PTW supply-chain, geofence compliance, driver safety, ReportLab PDF export) integrated against a live Traccar GPS server.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Arch Technologies — Machine Learning Intern (Aug–Sep 2026 · Remote)</strong> — Developed and evaluated classical ML and deep learning models; built an NLP spam detection pipeline (TF-IDF + Naive Bayes), a CNN digit classifier on MNIST (98.4% accuracy), and California housing regression benchmarks.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Fentix Tech — Full-Stack Web Development Intern (Sep–Oct 2026 · Remote)</strong> — Built modern, responsive full-stack applications across HTML5, CSS3, Bootstrap, JavaScript ES6+, React.js frontend components, and scalable Node.js/Express APIs backed by MongoDB.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>SOLUTION A &amp; I</span><span>ARCH TECHNOLOGIES</span><span>FENTIX TECH</span><span>FULL-STACK PYTHON</span><span>MERN &amp; REACT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 05: HEALTHCARE KERNEL (INDEPENDENT COMMERCIAL VENTURE) -->
+    <section class="chapter" data-scene="clinic" data-label="LAYER 05 · HEALTHCARE KERNEL" data-year="RECENT (LAST 6 MONTHS)" data-accent="#00d2ff">
+      <div class="pin">
+        <div class="num" aria-hidden="true">05</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 05 &nbsp;·&nbsp; INDEPENDENT COMMERCIAL VENTURE &nbsp;·&nbsp; RECENT (LAST 6 MONTHS)</p>
+          <h2 class="title reveal" style="--d:.08s">Next-Gen Clinic &amp; Pharmacy OS</h2>
+          <p class="serif reveal" style="--d:.16s">Production healthcare POS today, scalable multi-branch healthcare ecosystem tomorrow.</p>
+          <p class="lede reveal" style="--d:.24s">Engineered as an independent commercial venture: a production-grade full-stack Clinic &amp; Pharmacy POS built to eliminate expired drug liability and cashier latency, architected with a scalable roadmap toward a unified healthcare and supply-chain network.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Shipped Core: Next.js 16 + FastAPI + PostgreSQL POS</strong> — Production-grade full-stack PWA engineered for real-world pharmacy counters and clinical practices. Features sub-50ms hardware barcode scanner interception, custom 14-digit Pakistani QR GTIN parsing, and role-based access control (RBAC).</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Smart Inventory: FEFO Batching &amp; Gemini Multimodal OCR</strong> — Enforces strict First-Expired, First-Out batch deductions to completely eliminate expired drug stock liabilities; integrates Google Gemini Multimodal OCR for automated ingestion of supplier invoice images and packing PDFs into digital ledgers.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Scalable Roadmap: Standalone Cores, Supplier Hub &amp; Map Network</strong> — Architectural expansion planned for decoupled standalone clinic ERPs (OPD queues, diagnostics) and standalone enterprise pharmacies, tied into a centralized supplier procurement hub and live geolocation map tracking inter-branch stock routing.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>NEXT.JS 16 &amp; FASTAPI</span><span>FEFO &amp; GEMINI OCR</span><span>HARDWARE BARCODE POS</span><span>SCALABLE ROADMAP</span><span>INDEPENDENT VENTURE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 06: SKETCH2STACK: THE STUDIO -->
+    <section class="chapter" data-scene="studio" data-label="LAYER 06 · THE STUDIO" data-year="JUN 2026 – PRESENT" data-accent="#f59e0b">
+      <div class="pin">
+        <div class="num" aria-hidden="true">06</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 06 &nbsp;·&nbsp; THE STUDIO &nbsp;·&nbsp; JUN 2026 – PRESENT</p>
+          <h2 class="title reveal" style="--d:.08s">SKETCH2STACK</h2>
+          <p class="serif reveal" style="--d:.16s">Three friends, one shared ethos: taking ideas from napkin sketches to deployed production.</p>
+          <p class="lede reveal" style="--d:.24s">Co-founded as an independent software studio. We design, architect, and ship high-reliability software systems for commercial clients across wholesale, quick-service retail, real estate, luxury goods, and automotive.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Co-Founder &amp; Systems Lead</strong> — Built with two friends; owning architectural scoping, full-stack pipelines, database schemas, and client deliverables end-to-end.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Zero bloat, real businesses</strong> — Every build is hardened for real-world operations, resilient to network drops, and backed by automated workflows.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Expanding roadmap</strong> — Scaling beyond bespoke client engagements into high-throughput SaaS and enterprise tools.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>FOUNDED JUN 2026</span><span>3-DEV CORE</span><span>5+ PRODUCTION BUILDS</span><span>ACTIVE STUDIO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 07: SKETCH2STACK: TRANSACTION ENGINES -->
+    <section class="chapter" data-scene="pos" data-label="LAYER 07 · TRANSACTION ENGINES" data-year="SKETCH2STACK · RECENT" data-accent="#ff6b4a">
+      <div class="pin">
+        <div class="num" aria-hidden="true">07</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 07 &nbsp;·&nbsp; SKETCH2STACK &nbsp;·&nbsp; RECENT (LAST 6 MONTHS)</p>
+          <h2 class="title reveal" style="--d:.08s">Retail &amp; Wholesale POS Suite</h2>
+          <p class="serif reveal" style="--d:.16s">When milliseconds count at the cash drawer and wholesale loading dock.</p>
+          <p class="lede reveal" style="--d:.24s">Engineered under SKETCH2STACK: production point-of-sale platforms designed for lightning-fast cashier throughput, barcode scanner hardware integration, and multi-terminal transaction integrity.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Bakery Wholesale POS</strong> — Change-set architecture, wholesale invoice generation, multi-tier bulk pricing, and automated thermal receipt printer routing.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Pizza Avenue POS</strong> — High-volume quick-service restaurant engine: customized menu modifications, kitchen order ticketing (KDS), and live shift reconciliation.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>Hardware Timing &amp; Ledgers</strong> — Scanner input listeners with sub-50ms timing discrimination preventing search pollution; immutable cash balancing.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>WHOLESALE POS</span><span>PIZZA AVENUE</span><span>THERMAL PRINTING</span><span>OFFLINE SQLITE</span><span>SKETCH2STACK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 08: SKETCH2STACK: CLIENT PLATFORMS -->
+    <section class="chapter" data-scene="web" data-label="LAYER 08 · CLIENT PLATFORMS" data-year="SKETCH2STACK · RECENT" data-accent="#a855f7">
+      <div class="pin">
+        <div class="num" aria-hidden="true">08</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 08 &nbsp;·&nbsp; SKETCH2STACK &nbsp;·&nbsp; RECENT (LAST 6 MONTHS)</p>
+          <h2 class="title reveal" style="--d:.08s">Commercial Web Platforms</h2>
+          <p class="serif reveal" style="--d:.16s">Bespoke web platforms built to drive conversion and handle complex domain data.</p>
+          <p class="lede reveal" style="--d:.24s">Delivered under the SKETCH2STACK umbrella: high-performance responsive web applications engineered for distinct industries, from land developments to luxury jewelry and automotive inventory.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Housing Society Portal</strong> — Comprehensive phase conversion and master-plan plot records for commercial real estate (Market Sikander Chowk), streamlining plot allocations.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Jewelry Boutique Platform</strong> — High-end e-commerce showcase featuring dynamic luxury catalogs, bespoke product inquiries, and elegant visual branding.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>CarZone &amp; Automobile Showroom</strong> — Dealership management system handling vehicle inventory, specifications, customer lead acquisition, and showroom records.</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.54s">
+            <span>HOUSING SOCIETY</span><span>JEWELRY SHOP</span><span>CARZONE SHOWROOM</span><span>SKETCH2STACK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 09: VERIFIED PROTOCOLS (DEDICATED SCREEN) -->
+    <section class="chapter" data-scene="certs" data-label="LAYER 09 · VERIFIED PROTOCOLS" data-year="AUG 2026" data-accent="#eab308">
+      <div class="pin">
+        <div class="num" aria-hidden="true">09</div>
+        <div class="inner">
+          <p class="kicker reveal">LAYER 09 &nbsp;·&nbsp; ACCREDITATIONS &amp; HONOURS &nbsp;·&nbsp; AUG 2026</p>
+          <h2 class="title reveal" style="--d:.08s">Verified Protocols</h2>
+          <p class="serif reveal" style="--d:.16s">Continuous professional growth backed by industry-standard certifications.</p>
+          <p class="lede reveal" style="--d:.24s">Demonstrated technical mastery through verified programs from Google and leading artificial intelligence institutes, backed by strong academic performance.</p>
+          <ul class="beats">
+            <li class="reveal" style="--d:.3s"><b>01</b><span><strong>Google — Crash Course on Python (Grade: 91.50%)</strong> — Verified Coursera credential. Completed with an achieved grade of <strong>91.50%</strong> in foundational programming, data structures, OOP, and automation.</span></li>
+            <li class="reveal" style="--d:.38s"><b>02</b><span><strong>Google — Google Prompting Essentials Specialization</strong> — 4-Course Verified Specialization: Advanced Prompt Design, Everyday Workflow Automation, Data Analysis &amp; Presentation Building, and AI Creative Pairing.</span></li>
+            <li class="reveal" style="--d:.46s"><b>03</b><span><strong>DeepLearning.AI — Supervised Machine Learning</strong> — Regression and Classification specialization authorized by DeepLearning.AI and Andrew Ng.</span></li>
+            <li class="reveal" style="--d:.54s"><b>04</b><span><strong>COMSATS University Islamabad, Lahore Campus</strong> — Bachelor of Science in Software Engineering (BS SE · Class of 2027).</span></li>
+          </ul>
+          <div class="stats reveal" style="--d:.62s">
+            <span>GOOGLE PYTHON 91.5%</span><span>GOOGLE PROMPTING SPECIALIST</span><span>DEEPLEARNING.AI</span><span>COMSATS '27</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYER 10: SYSTEM DIRECTORY (DEDICATED CLOSING SCREEN) -->
+    <section class="chapter finale" data-scene="finale" data-label="LAYER 10 · SYSTEM DIRECTORY" data-year="CLASS OF 2027" data-accent="#f4f6fa">
+      <div class="pin">
+        <div class="inner center">
+          <p class="kicker reveal">LAYER 10 &nbsp;·&nbsp; DIRECTORY &amp; DIRECT CHANNELS</p>
+          <h2 class="title reveal" style="--d:.08s">System Directory</h2>
+          <div class="honours reveal" style="--d:.2s">
+            <p><b>CO-FOUNDER</b> — SKETCH2STACK (5+ Deployed Commercial Systems)</p>
+            <p><b>CREATOR</b> — Next-Gen Clinic &amp; Pharmacy Management OS (Production Core &amp; Scalable Healthcare Roadmap)</p>
+            <p><b>BACKEND ENGINEER &amp; AI CHATBOT</b> — DIVA.AI Bridal Virtual Try-On (Ongoing FYP · Team Project)</p>
+            <p><b>CLASS OF 2027</b> — COMSATS University Islamabad, Lahore Campus (BS Software Engineering)</p>
+          </div>
+          <p class="skills-line reveal" style="--d:.3s">PYTHON · FASTAPI · NEXT.JS · REACT · NODE.JS · C++ · OPENMP · TENSORFLOW · SCIKIT-LEARN · FLUTTER · TAILWIND CSS · POSTGRESQL · SQLITE · MONGODB · DOCKER · GIT</p>
+          <p class="credit-line reveal" style="--d:.4s">Engineered, architected &amp; deployed by</p>
+          <p class="credit-name reveal" style="--d:.48s">TAHA BIN YOUSUF</p>
+          <div class="contact reveal" style="--d:.58s">
+            <a href="mailto:tahaqazi417@gmail.com">tahaqazi417@gmail.com</a>
+            <span class="divider">·</span>
+            <a href="https://www.linkedin.com/in/taha-bin-yousuf-851726414" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="divider">·</span>
+            <a href="https://github.com/taha-qazi" target="_blank" rel="noopener">GitHub</a>
+            <span class="divider">·</span>
+            <span>Lahore, Pakistan</span>
+          </div>
+          <p class="fineprint reveal" style="--d:.68s">© 2026 TAHA BIN YOUSUF &nbsp;·&nbsp; SHOT ENTIRELY ON SCROLL &nbsp;·&nbsp; THE SOFTWARE STACK &nbsp;·&nbsp; SCORE: 'ADRIFT' BY SCOTT BUCKLEY</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/portrait_data.js?v=24"></script>
+  <script src="js/world.js?v=24"></script>
+  <script src="js/main.js?v=24"></script>
+</body>
+
+</html>
