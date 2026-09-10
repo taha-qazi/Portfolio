@@ -628,35 +628,50 @@ body {
 
 /* ——— Responsive (Tablets & Mobile Phones) ——— */
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .chapter {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 140vh;
+    min-height: 140svh;
   }
   .chapter.hero {
-    min-height: 115vh;
-    min-height: 115svh;
+    min-height: 155vh;
+    min-height: 155svh;
   }
   .chapter.finale {
-    min-height: 95vh;
-    min-height: 95svh;
+    min-height: 130vh;
+    min-height: 130svh;
   }
 
-  .dots { display: none; }
+  /* Unclutter mobile screen */
+  .dots { display: none !important; }
   .controls-cluster {
-    top: auto;
-    bottom: 16px;
-    right: 14px;
+    top: auto !important;
+    bottom: 16px !important;
+    right: 14px !important;
     gap: 6px;
   }
   .autoplay-btn, .mute-btn, .cv-btn {
-    padding: 5px 10px;
-    font-size: 8.5px;
+    padding: 6px 12px;
+    font-size: 9px;
     border-radius: 16px;
   }
   .hud-tl { top: 12px; left: 14px; font-size: 8.5px; letter-spacing: 0.16em; }
   .hud-bl { bottom: 14px; left: 14px; font-size: 8.5px; letter-spacing: 0.16em; }
-  .hud-br { display: none; }
+  .hud-br { display: none !important; }
+
+  /* Hero on mobile: position text cleanly so it doesn't obscure 3D particle face */
+  .chapter.hero .pin {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: calc(10vh + 15px);
+  }
+  .hero .inner {
+    max-width: 92vw;
+  }
+  .hero .title-hero {
+    font-size: clamp(34px, 8.8vw, 56px);
+  }
+
 
   .chapter:not(.hero):not(.finale) .pin {
     padding: 44px 5vw 48px 5vw;

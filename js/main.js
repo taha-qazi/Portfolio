@@ -142,9 +142,9 @@
     W = window.innerWidth;
     H = window.innerHeight;
     docH = document.documentElement.scrollHeight;
-    isMobile = W <= 860;
-    HOLD = isMobile ? 0.32 : 0.52;
-    aspectComp = W < 860 ? 18 : (W < 1100 ? 8 : 0);
+    isMobile = W <= 900 || ("ontouchstart" in window && W <= 1024);
+    HOLD = isMobile ? 0.28 : 0.52;
+    aspectComp = isMobile ? 18 : (W < 1100 ? 8 : 0);
     renderer.setPixelRatio(Math.min(isMobile ? 1.4 : 1.75, window.devicePixelRatio || 1));
     renderer.setSize(W, H);
     camera.aspect = W / H;
@@ -166,6 +166,8 @@
   }
 
   window.addEventListener("resize", measure, { passive: true });
+  window.addEventListener("load", measure);
+  if (document.fonts) document.fonts.ready.then(measure);
 
   // Navigation dots
   if (dotsNav) {
@@ -266,7 +268,7 @@
 
     // Autoplay scroll step
     if (isAutoplaying) {
-      const step = (W <= 860) ? 6.6 : 4.4;
+      const step = isMobile ? 8.0 : 4.4;
       window.scrollBy(0, step);
       if (window.scrollY >= docH - H - 4) isAutoplaying = false;
     }
