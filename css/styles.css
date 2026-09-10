@@ -630,16 +630,16 @@ body {
 
 @media (max-width: 860px) {
   .chapter {
-    min-height: 125vh;
-    min-height: 125svh;
+    min-height: 100vh;
+    min-height: 100svh;
   }
   .chapter.hero {
-    min-height: 140vh;
-    min-height: 140svh;
+    min-height: 115vh;
+    min-height: 115svh;
   }
   .chapter.finale {
-    min-height: 110vh;
-    min-height: 110svh;
+    min-height: 95vh;
+    min-height: 95svh;
   }
 
   .dots { display: none; }

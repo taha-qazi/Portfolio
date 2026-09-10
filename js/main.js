@@ -14,7 +14,7 @@
 
   const D = 420;               // distance between stations on Z
   const CAM_BACK = 62;         // camera rest distance from station
-  const HOLD = 0.52;           // fraction of station spent holding
+  let HOLD = 0.52;             // fraction of station spent holding (overridden on mobile)
 
   const canvas = document.getElementById("scene");
   const grainCanvas = document.getElementById("grain");
@@ -142,8 +142,9 @@
     W = window.innerWidth;
     H = window.innerHeight;
     docH = document.documentElement.scrollHeight;
-    isMobile = W <= 820;
-    aspectComp = W < 820 ? 18 : (W < 1100 ? 8 : 0);
+    isMobile = W <= 860;
+    HOLD = isMobile ? 0.32 : 0.52;
+    aspectComp = W < 860 ? 18 : (W < 1100 ? 8 : 0);
     renderer.setPixelRatio(Math.min(isMobile ? 1.4 : 1.75, window.devicePixelRatio || 1));
     renderer.setSize(W, H);
     camera.aspect = W / H;
