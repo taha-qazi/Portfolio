@@ -629,6 +629,19 @@ body {
 /* ——— Responsive (Tablets & Mobile Phones) ——— */
 
 @media (max-width: 860px) {
+  .chapter {
+    min-height: 125vh;
+    min-height: 125svh;
+  }
+  .chapter.hero {
+    min-height: 140vh;
+    min-height: 140svh;
+  }
+  .chapter.finale {
+    min-height: 110vh;
+    min-height: 110svh;
+  }
+
   .dots { display: none; }
   .controls-cluster {
     top: auto;

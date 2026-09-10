@@ -265,7 +265,8 @@
 
     // Autoplay scroll step
     if (isAutoplaying) {
-      window.scrollBy(0, autoSpeed);
+      const step = (W <= 860) ? 6.6 : 4.4;
+      window.scrollBy(0, step);
       if (window.scrollY >= docH - H - 4) isAutoplaying = false;
     }
 
