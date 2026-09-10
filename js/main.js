@@ -156,7 +156,10 @@
     }
 
     sides = isMobile ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : SIDE_DESKTOP.slice();
-    chapters.forEach((ch, i) => { ch.group.position.x = sides[i] || 0; });
+    chapters.forEach((ch, i) => { 
+      ch.group.position.x = sides[i] || 0; 
+      if (i !== 0) ch.group.position.y = isMobile ? 18 : 0;
+    });
 
     sections.forEach((s) => {
       const r = s.el.getBoundingClientRect();
