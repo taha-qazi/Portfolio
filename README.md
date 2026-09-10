@@ -46,6 +46,6 @@ Visit `http://localhost:8000` in your browser.
 
 <div align="center">
 
-**Taha Bin Yousuf** &bull; Lahore, Pakistan &bull; [tahaqazi417@gmail.com](mailto:tahaqazi417@gmail.com) &bull; [+92 310 7127143](tel:+923107127143)
+**Taha Bin Yousuf** &bull; Lahore, Pakistan &bull; [tahaqazi417@gmail.com](mailto:tahaqazi417@gmail.com) 
 
 </div>
