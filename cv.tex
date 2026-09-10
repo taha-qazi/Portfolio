@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------------
-% Taha Bin Yousuf - Curriculum Vitae (2-Page Professional Tech Resume)
-% Compiled for Overleaf (pdflatex) / ATS-Friendly & Clean LaTeX Architecture
+% Taha Bin Yousuf - Curriculum Vitae (3-Page Comprehensive Tech Resume)
+% Ready for Overleaf (pdflatex) / ATS-Friendly & Clean LaTeX Architecture
 %-------------------------------------------------------------------------------
 
 \documentclass[letterpaper,10pt]{article}
@@ -24,7 +24,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Page Margins
+% Page Margins (Calibrated for crisp spacing across 3 pages)
 \addtolength{\oddsidemargin}{-0.55in}
 \addtolength{\evensidemargin}{-0.55in}
 \addtolength{\textwidth}{1.1in}
@@ -39,7 +39,7 @@
 
 % Section Title Formatting
 \titleformat{\section}{
-  \vspace{3pt}\scshape\raggedright\large\bfseries
+  \vspace{4pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
 
 % Custom Bullet & Subheading Commands
@@ -50,15 +50,15 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{1pt}\item
+  \vspace{2pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeProjectHeading}[3]{
-  \vspace{2pt}\item
+  \vspace{3pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \small #2 \\
       \textit{\small #3} & \\
@@ -78,12 +78,16 @@
 
 \begin{document}
 
+%===============================================================================
+% PAGE 1: HEADER, SUMMARY, EDUCATION & INDUSTRY WORK EXPERIENCE
+%===============================================================================
+
 %----------HEADING----------
 \begin{center}
     {\Huge \scshape Taha Bin Yousuf} \\ \vspace{6pt}
     \small Lahore, Pakistan \ --- \ 
     \href{mailto:tahaqazi417@gmail.com}{\underline{tahaqazi417@gmail.com}} \ --- \ 
-    \href{tel:+923107127143}{\underline{+92-3107127143}} \ --- \ 
+    \href{tel:+923107127143}{\underline{+92 310 7127143}} \ --- \ 
     \href{https://linkedin.com/in/taha-bin-yousuf-851726414}{\textbf{LinkedIn}} \ --- \ 
     \href{https://github.com/taha-qazi}{\textbf{GitHub}}
 \end{center}
@@ -91,7 +95,7 @@
 %-----------SUMMARY-----------
 \section{Summary}
 \small{
-Full-Stack Systems Engineer and AI Developer with proven production experience architecting high-throughput point-of-sale ecosystems, computer vision pipelines, and distributed enterprise platforms. Co-Founder at \textbf{SKETCH2STACK}, delivering commercial software solutions across retail, inventory automation, and multi-tenant architectures. Strong engineering background in Python, C++, Next.js, FastAPI, PostgreSQL, PyTorch, and parallel computing with a deep commitment to high-performance systems and clean software design.
+Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STACK} with proven experience architecting high-throughput point-of-sale platforms, telematics microservices, and distributed web applications. Strong engineering background spanning Python (FastAPI, Django), modern JavaScript/TypeScript (Next.js App Router, React.js), C++ with OpenMP parallel computing, and normalized relational database modeling (PostgreSQL, SQL). Experienced in building offline-resilient local sync engines, ESC/POS hardware integrations, automated reporting pipelines, and production machine learning models.
 }
 
 %-----------EDUCATION-----------
@@ -99,125 +103,157 @@ Full-Stack Systems Engineer and AI Developer with proven production experience a
   \resumeSubHeadingListStart
     \resumeSubheading
       {COMSATS University Islamabad, Lahore Campus}{Lahore, Pakistan}
-      {Bachelor of Science in Software Engineering (BS SE) — 7th Semester (Class of 2027)}{2023 -- Present}
+      {Bachelor of Science in Software Engineering (BS SE) --- Class of 2027}{2023 -- Present}
       \resumeItemListStart
-        \resumeItem{\textbf{Core Engineering Coursework:} Data Structures \& Algorithms, Operating Systems, Database Management Systems, Object-Oriented Software Engineering, Software Architecture \& Design, Machine Learning, Parallel \& Distributed Computing, Web Engineering, Mobile Application Development.}
-        \resumeItem{\textbf{Academic Focus:} High-performance parallel computation, dense pose estimation for generative computer vision, and scalable enterprise server architectures.}
+        \resumeItem{\textbf{Core Engineering Coursework:} Data Structures \& Algorithms, Operating Systems, Database Management Systems (3NF/BCNF), Object-Oriented Software Engineering, Software Architecture \& Design, Machine Learning, Parallel \& Distributed Computing, Web Engineering, Mobile Application Development.}
+        \resumeItem{\textbf{Academic Focus:} High-performance parallel compute kernels, scalable enterprise backends, atomic transactions, and computer vision architectures.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
-\section{Experience}
+\section{Work Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
       {SKETCH2STACK}{Lahore, Pakistan}
       {Co-Founder \& Systems Lead}{Jun 2026 -- Present}
       \resumeItemListStart
-        \resumeItem{Co-founded an independent software studio delivering 5+ production-grade web, mobile, and backend systems across retail, food and beverage wholesale, jewelry eCommerce, real estate, and automotive platforms.}
-        \resumeItem{Engineered full-stack enterprise architectures using Next.js (App Router), FastAPI, Node.js, and PostgreSQL, designing normalized database schemas, index optimizations, and asynchronous background worker queues.}
-        \resumeItem{Implemented offline-resilient local sync mechanisms, ESC/POS thermal receipt printing pipelines, barcode scanner interceptors, and granular Role-Based Access Control (RBAC) across client installations.}
-        \resumeItem{Spearheaded technical client consultations, requirement specifications, architectural blueprints, and continuous automated CI/CD deployment pipelines on Vercel and cloud VPS infrastructure.}
+        \resumeItem{Co-founded an independent software studio delivering 5+ production-grade web, mobile, and backend systems across wholesale retail, food service, jewelry eCommerce, real estate, and automotive industries.}
+        \resumeItem{Engineered full-stack architectures using Next.js (App Router), FastAPI, Node.js, and PostgreSQL; designed normalized schemas, transactional integrity ledgers, and background worker queues.}
+        \resumeItem{Implemented offline-resilient local sync mechanisms using SQLite and indexed client stores, ESC/POS thermal receipt printing pipelines, barcode scanner listeners ($<), and granular Role-Based Access Control (RBAC).}
+        \resumeItem{Led technical scoping, database schema design, sprint planning, and automated CI/CD deployment pipelines on Vercel and VPS cloud infrastructure.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Solution A \& I}{Remote}
       {Full Stack Python Engineer Intern}{Aug 2026 -- Oct 2026}
       \resumeItemListStart
-        \resumeItem{Engineered backend GPS telematics microservices integrating Traccar server protocols to track fleet dispatches, geofence events, vehicle stoppage logs, and route summary metrics.}
-        \resumeItem{Architected Leaf-Pattern service layers across user management, dispatches, and delivery modules, wrapping state mutations in atomic transactions (\texttt{@transaction.atomic()}) with strict type-hinting.}
-        \resumeItem{Eliminated N+1 query bottlenecks across high-volume telematics endpoints utilizing \texttt{.select\_related()} and \texttt{.prefetch\_related()} query optimizations.}
-        \resumeItem{Built automated CSV bulk import and batch validation pipelines for dispatch staging tables, alongside automated ReportLab PDF telematics reporting endpoints.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Fentix Tech}{Remote}
-      {Full-Stack Web Development Intern}{Sep 2026 -- Oct 2026}
-      \resumeItemListStart
-        \resumeItem{Completed intensive full-stack development track focusing on HTML5, CSS3, Bootstrap, Responsive UI/UX Design, JavaScript (ES6+), React.js, Node.js, and MongoDB.}
-        \resumeItem{Engineered responsive, interactive front-end web interfaces in React.js and Bootstrap with modular component architecture, stateful forms, and cross-browser consistency.}
-        \resumeItem{Developed backend RESTful APIs using Node.js and Express, implementing secure JWT authentication middleware, CORS handling, and transactional MongoDB/Mongoose database models.}
+        \resumeItem{Executed Django REST API migration from a legacy Laravel fleet-management platform; developed core business logic for dispatches, multi-stop deliveries, device management, and secure JWT authentication.}
+        \resumeItem{Engineered a fleet telematics analytics and reporting engine featuring 18+ endpoints: Plant-to-Warehouse (PTW) supply-chain tracking, geofence compliance calculators, driver safety metrics, POI coordinate mapping, and automated ReportLab PDF export generators.}
+        \resumeItem{Standardized external Traccar GPS server gateway integrations using dedicated service facades; automated vehicle geofence permissions linking to trigger real-time enter/exit events.}
+        \resumeItem{Applied enterprise Leaf-Pattern architecture across service layers, wrapped database mutations in atomic transactions (\texttt{@transaction.atomic()}), eliminated N+1 query bottlenecks via \texttt{.select\_related()} and \texttt{.prefetch\_related()}, and enforced strict \texttt{\{"success": true, "data": ...\}} frontend response schemas.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Arch Technologies}{Remote}
       {Machine Learning Intern}{Aug 2026 -- Sep 2026}
       \resumeItemListStart
-        \resumeItem{Trained and evaluated classical machine learning and deep learning models in Python using Scikit-Learn, Pandas, NumPy, and TensorFlow.}
-        \resumeItem{Constructed an NLP spam detection pipeline (TF-IDF vectorization + Naive Bayes classifier), an MNIST handwritten digit classifier via Convolutional Neural Networks (CNN) achieving 98.4\% accuracy, and a California Housing price regression model with cross-validated feature scaling.}
-        \resumeItem{Performed exploratory data analysis (EDA), automated outlier detection, and hyperparameter tuning to optimize model generalization metrics.}
+        \resumeItem{Developed, trained, and benchmarked classical machine learning and deep learning pipelines in Python using Scikit-Learn, Pandas, NumPy, and TensorFlow.}
+        \resumeItem{Constructed an end-to-end NLP spam detection pipeline (TF-IDF vectorization with Naive Bayes classification), a Convolutional Neural Network (CNN) on MNIST handwritten digits achieving 98.4\% test accuracy, and California Housing price regression models.}
+        \resumeItem{Conducted exploratory data analysis (EDA), feature engineering, automated outlier detection, and hyperparameter cross-validation to maximize model generalization.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Fentix Tech}{Remote}
+      {Full-Stack Web Development Intern}{Sep 2026 -- Oct 2026}
+      \resumeItemListStart
+        \resumeItem{Completed comprehensive full-stack track covering HTML5, CSS3, Bootstrap, Responsive UI/UX Design, JavaScript (ES6+), React.js, Node.js, and MongoDB.}
+        \resumeItem{Engineered modular, responsive front-end components in React.js and Bootstrap with stateful validation forms, interactive dashboards, and cross-browser consistency.}
+        \resumeItem{Built RESTful backend APIs in Node.js and Express, implementing secure JWT authentication, CORS middleware, password hashing with bcrypt, and transactional Mongoose models.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
-%-------------------------------------------------------------------------------
-% PAGE 2: PROJECTS, SKILLS, CERTIFICATIONS & HONORS
-%-------------------------------------------------------------------------------
+%===============================================================================
+% PAGE 2: COMMERCIAL SYSTEMS, PRODUCTION POS & ENTERPRISE PLATFORMS
+%===============================================================================
 \newpage
 
-%-----------FEATURED PROJECTS-----------
-\section{Featured Projects}
+\section{Commercial Software Systems \& Production Platforms}
   \resumeSubHeadingListStart
 
     \resumeProjectHeading
         {Next-Gen Clinic \& Pharmacy Management OS \normalfont(Independent Commercial Venture)}{Recent (2026)}
         {Next.js 16, FastAPI, Python, PostgreSQL, PWA, GS1/GTIN 2D QR Parser, Gemini Vision OCR}
         \resumeItemListStart
-          \resumeItem{\textbf{Shipped Production Core:} Engineered a high-throughput Clinic \& Pharmacy POS system with hardware barcode scanner listeners ($<$50ms response), GS1/GTIN 2D QR invoice parsing, FEFO (First-Expired, First-Out) batch deduction, and granular RBAC.}
-          \resumeItem{\textbf{Multimodal Invoice Extraction:} Integrated Google Gemini Vision OCR to extract medicine brand names, dosages, batch numbers, and expiry dates directly from physical supplier invoices, eliminating manual data entry.}
-          \resumeItem{\textbf{Scalable Ecosystem Roadmap:} Architected a modular enterprise roadmap deployable as standalone clinical EHR, standalone retail pharmacy, supplier procurement exchange, and centralized multi-branch geolocation map network.}
+          \resumeItem{\textbf{Shipped Production Core:} Engineered a high-throughput Clinic \& Pharmacy POS system for clinical practices and retail pharmacy counters, featuring sub-50ms hardware barcode scanner interception, Pakistani 14-digit QR GTIN parsing, and granular Role-Based Access Control (RBAC).}
+          \resumeItem{\textbf{Smart Inventory \& FEFO Batching:} Implemented strict First-Expired, First-Out (FEFO) batch deduction logic across pharmaceutical stock, completely eliminating expired drug stock liability and automated shelf batch rotation.}
+          \resumeItem{\textbf{Multimodal Invoice Extraction:} Integrated Google Gemini Multimodal OCR to extract medicine brand names, dosages, batch numbers, and expiry dates directly from physical supplier invoices and packing slip PDFs into digital accounting ledgers.}
+          \resumeItem{\textbf{Scalable Roadmap Architecture:} Designed modular decoupled roadmap deployable as standalone clinical EHR (OPD queues, digital prescriptions), standalone retail pharmacy POS, centralized supplier procurement hub, and live multi-branch geolocation map network.}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {DIVA AI: Virtual Bridal Try-On System \normalfont(Final Year Project)}{2026 -- Present}
-        {PyTorch, DensePose, Diffusion Models, OpenCV, UV Surface Mapping, FastAPI}
-        \resumeItemListStart
-          \resumeItem{Spearheading undergraduate Final Year Project engineering a generative virtual try-on pipeline tailored for intricate South Asian bridal couture and ethnic formalwear.}
-          \resumeItem{Utilizing neural pose estimation and dense surface UV mapping to synthesize photorealistic fabric draping while preserving intricate embroidery textures (zardozi, tilla, dabka) and silhouette geometry across arbitrary human poses.}
-        \resumeItemListEnd
-
-    \resumeProjectHeading
-        {Commercial POS Ecosystem (Bakery Wholesale \& Pizza Avenue) \normalfont(SKETCH2STACK)}{2026}
+        {Bakery Wholesale Management \& Dispatch POS \normalfont(SKETCH2STACK)}{2026}
         {Next.js, Node.js, PostgreSQL, Tailwind CSS, ESC/POS Thermal Printing, Offline SQLite}
         \resumeItemListStart
-          \resumeItem{Delivered custom multi-terminal POS solutions featuring real-time Kitchen Display Systems (KDS), split-bill logic, automated recipe-level ingredient consumption tracking, and low-inventory SMS/email alerts.}
-          \resumeItem{Designed offline-first synchronization using local browser storage and background sync workers to ensure zero transaction loss during network outages.}
+          \resumeItem{\textbf{Wholesale Transaction Engine:} Built a rapid wholesale billing application designed for loading-dock environments, featuring multi-tier bulk pricing matrices, automated wholesale invoice generation, and customer credit balance ledgers.}
+          \resumeItem{\textbf{Hardware Printer Integration:} Engineered direct ESC/POS thermal receipt printer routing with customized template formatting for high-speed counter receipts and loading-bay dispatch slips.}
+          \resumeItem{\textbf{Offline-First Architecture:} Designed change-set synchronization with local browser SQLite storage, ensuring cashiers and dispatch managers can execute transactions with zero disruption during network outages.}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {Commercial Web Platforms (Housing Society, Jewelry Boutique, CarZone) \normalfont(SKETCH2STACK)}{2026}
-        {Next.js (App Router), React.js, Node.js, MongoDB, Responsive UI/UX}
+        {Pizza Avenue Quick-Service Restaurant POS \normalfont(SKETCH2STACK)}{2026}
+        {React.js, Node.js, Express, MongoDB, Tailwind CSS, Real-Time WebSockets}
         \resumeItemListStart
-          \resumeItem{Built high-conversion commercial portals including a real estate master-plan plot allocation system (Market Sikander Chowk), a luxury jewelry boutique e-commerce showcase, and a CarZone automotive dealership inventory manager.}
+          \resumeItem{\textbf{High-Volume Order Engine:} Architected a fast-paced restaurant POS handling complex menu customizations, add-on crust modifiers, deal combos, and instant table-side order entry.}
+          \resumeItem{\textbf{Kitchen Display System (KDS):} Implemented real-time order status broadcasting via WebSockets to kitchen screens, optimizing order preparation times and eliminating lost paper tickets.}
+          \resumeItem{\textbf{Shift Reconciliation \& Cash Balancing:} Engineered end-of-shift drawer reconciliation modules with immutable cash balancing, sales category breakdowns, and automated daily manager summaries.}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {High-Performance Parallel Regression Engine \normalfont(Academic)}{2026}
+        {Commercial Web Platforms Bundle \normalfont(SKETCH2STACK Commercial Clients)}{2026}
+        {Next.js 15+ (App Router), React.js, Node.js, MongoDB, Responsive UI/UX}
+        \resumeItemListStart
+          \resumeItem{\textbf{Housing Society Portal (Market Sikander Chowk):} Built a commercial real estate management portal streamlining master-plan plot records, phase conversion tracking, and buyer allocation registries.}
+          \resumeItem{\textbf{Luxury Jewelry Boutique Platform:} Developed an elegant luxury jewelry e-commerce showcase featuring high-resolution catalog displays, dynamic product inquiry workflows, and bespoke visual branding.}
+          \resumeItem{\textbf{CarZone Automotive Dealership Showroom:} Engineered a comprehensive dealership vehicle inventory management system supporting detailed vehicle technical specs, lead capture forms, and showroom inquiry tracking.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%===============================================================================
+% PAGE 3: CAPSTONE FYP, SYSTEMS ENGINEERING, SKILLS & CERTIFICATIONS
+%===============================================================================
+\newpage
+
+\section{Capstone FYP \& Systems Engineering Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+        {DIVA AI: AI Bridal Virtual Try-On Platform \normalfont(Capstone FYP --- Collaborative Team Project)}{2026 -- Present}
+        {FastAPI, Python, PyTorch, Computer Vision, Conversational AI, Normalized SQL Database}
+        \resumeItemListStart
+          \resumeItem{\textbf{Collaborative Final Year Project:} Developing an AI-powered bridal styling and virtual try-on platform for South Asian wedding couture at COMSATS University Islamabad, Lahore Campus.}
+          \resumeItem{\textbf{Conversational Styling Assistant Chatbot:} Personally designed and implemented an intelligent conversational AI chatbot to guide brides through garment discovery, wedding theme curation, and personalized recommendation flows.}
+          \resumeItem{\textbf{Database Architecture \& Schema Design:} Architected normalized database models managing multi-vendor bridal designer catalogs, client styling profiles, garment metadata, and measurement records.}
+          \resumeItem{\textbf{Backend API Engineering:} Developed scalable RESTful backend microservices in FastAPI under Agile sprints, interfacing the virtual try-on computer vision pipeline with e-commerce transaction workflows.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+        {Parallel Linear Regression Matrix Suite \normalfont(High-Performance Computing)}{2026}
         {C++, OpenMP, Multi-Threading, Cache Optimization, Batch Gradient Descent}
         \resumeItemListStart
-          \resumeItem{Implemented multi-threaded linear regression with batch gradient descent in modern C++ utilizing OpenMP, achieving a 3.8x compute speedup over sequential execution on multi-million row datasets.}
-          \resumeItem{Optimized memory access patterns and CPU cache locality to prevent false sharing across parallel worker threads.}
+          \resumeItem{\textbf{Multithreaded Compute Kernel:} Implemented high-throughput parallel linear regression with batch gradient descent in modern C++ utilizing OpenMP directives to parallelize matrix operations and cost calculations.}
+          \resumeItem{\textbf{Performance Benchmarking:} Achieved a 3.8x execution speedup over sequential baselines on multi-million element feature matrices; optimized CPU cache line utilization and memory access patterns to prevent false sharing.}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {CozyNest Mobile E-Commerce App}{2025}
-        {Flutter, Dart, Firebase Authentication, Cloud Firestore, Real-Time Sync}
+        {Online Order \& Relational Inventory Management System \normalfont(Database Systems)}{2025}
+        {Relational SQL, 3NF/BCNF Schema Design, ACID Transactions, Stored Procedures}
         \resumeItemListStart
-          \resumeItem{Engineered a cross-platform mobile shopping app featuring secure Firebase Auth, real-time Firestore catalog synchronization, product search filtering, and stateful checkout cart management.}
+          \resumeItem{\textbf{Normalized Schema Modeling:} Designed and normalized a comprehensive relational schema (3NF/BCNF) with strict PK/FK integrity constraints across customers, categories, products, multi-tier orders, and payment ledgers.}
+          \resumeItem{\textbf{Transactional Reliability:} Built ACID-compliant transaction blocks, complex SQL aggregation joins, and indexing strategies preventing inventory overselling during concurrent checkout attempts.}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {Movie Recommendation \& Streaming Hub}{2025}
+        {CozyNest Mobile E-Commerce App \normalfont(Mobile Application Development)}{2025}
+        {Flutter, Dart, Firebase Authentication, Cloud Firestore, Stateful Cart}
+        \resumeItemListStart
+          \resumeItem{\textbf{Cross-Platform Mobile Client:} Engineered a cross-platform mobile shopping application in Flutter with secure Firebase Authentication, real-time Cloud Firestore inventory sync, dynamic product search, and persistent checkout cart.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+        {Movie Recommendation \& Streaming Hub \normalfont(Web Engineering)}{2025}
         {MERN Stack (MongoDB, Express, React, Node.js), Stripe, JazzCash, EasyPaisa}
         \resumeItemListStart
-          \resumeItem{Developed a full-stack media streaming web portal with personalized recommendation filters, user watchlist curation, MongoDB aggregation analytics, and dual payment gateway integrations (Stripe + localized mobile wallets).}
+          \resumeItem{\textbf{Full-Stack Media Portal:} Developed a recommendation web portal featuring personalized genre filtering, MongoDB aggregation pipelines, and dual payment gateway integrations (Stripe + localized JazzCash and EasyPaisa).}
         \resumeItemListEnd
 
     \resumeProjectHeading
-        {Cosmetic Shop \& Inventory Management System}{2024}
-        {Java (OOP), Swing/JavaFX, Relational Data Schemas, File I/O Ledgers}
+        {Cosmetic Shop Management System \normalfont(Object-Oriented Software Engineering)}{2024}
+        {Java, Swing/JavaFX, OOP Principles, Relational Data Schemas, File Ledgers}
         \resumeItemListStart
-          \resumeItem{Developed a desktop enterprise GUI application applying core OOP principles (encapsulation, inheritance, polymorphism, abstraction) for inventory tracking, supplier ledgers, and cashier sales recording.}
+          \resumeItem{\textbf{Desktop Enterprise Application:} Built a desktop management GUI applying the four pillars of Object-Oriented Programming (encapsulation, inheritance, polymorphism, and abstraction) for product tracking, supplier ledgers, and cashier sales.}
         \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -226,11 +262,11 @@ Full-Stack Systems Engineer and AI Developer with proven production experience a
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Python, C/C++, JavaScript (ES6+), TypeScript, Dart, SQL, HTML5, CSS3, Java} \\ \vspace{2pt}
+     \textbf{Languages}{: Python, C/C++, JavaScript (ES6+), TypeScript, SQL, Dart, Java, HTML5, CSS3} \\ \vspace{2pt}
      \textbf{Frontend \& Mobile}{: Next.js (App Router), React.js, Flutter, Tailwind CSS, Bootstrap, Redux Toolkit, Responsive UI/UX} \\ \vspace{2pt}
-     \textbf{Backend \& APIs}{: FastAPI, Node.js, Express.js, Flask, RESTful APIs, JWT Authentication, WebSockets, Traccar GPS Telematics} \\ \vspace{2pt}
-     \textbf{AI, Computer Vision \& ML}{: PyTorch, TensorFlow, OpenCV, DensePose, Gemini Vision API, Scikit-Learn, Pandas, NumPy, Prompt Engineering} \\ \vspace{2pt}
-     \textbf{Databases \& Storage}{: PostgreSQL, SQLite, MongoDB, Firebase Firestore, Prisma ORM, Mongoose, Redis} \\ \vspace{2pt}
+     \textbf{Backend \& APIs}{: FastAPI, Django, Django REST Framework, Node.js, Express.js, RESTful APIs, JWT Auth, Traccar Telematics} \\ \vspace{2pt}
+     \textbf{AI, Computer Vision \& ML}{: PyTorch, TensorFlow, OpenCV, Scikit-Learn, Pandas, NumPy, Gemini Multimodal API, Prompt Engineering} \\ \vspace{2pt}
+     \textbf{Databases \& Storage}{: PostgreSQL, SQLite, MongoDB, Firebase Firestore, Mongoose, Relational SQL (3NF/BCNF), Redis} \\ \vspace{2pt}
      \textbf{Developer Tools \& DevOps}{: Git, GitHub, Docker, Postman, Linux (Bash), Vercel CI/CD, OpenMP, PWA, Swagger OpenAPI, ESC/POS Hardware}
     }}
  \end{itemize}
@@ -239,9 +275,9 @@ Full-Stack Systems Engineer and AI Developer with proven production experience a
 \section{Certifications \& Honors}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Google Crash Course on Python} — Coursera / Google (Grade: 91.50\%) \\ \vspace{2pt}
-     \textbf{Google Prompting Essentials Specialization} — Coursera / Google (4-Course Specialization) \\ \vspace{2pt}
-     \textbf{Academic Honors \& Merits} — COMSATS University Islamabad, Lahore Campus (Software Engineering Department)
+     \textbf{Google --- Crash Course on Python} --- Verified Coursera Credential (Grade Achieved: 91.50\%) \\ \vspace{2pt}
+     \textbf{Google --- Google Prompting Essentials Specialization} --- 4-Course Verified Specialization in Workflow Automation \& AI Prompting \\ \vspace{2pt}
+     \textbf{Academic Merit \& Coursework Honors} --- COMSATS University Islamabad, Lahore Campus (Software Engineering Department)
     }}
  \end{itemize}
 
