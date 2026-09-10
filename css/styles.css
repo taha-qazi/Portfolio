@@ -696,67 +696,66 @@ body {
 
   /* ---- Inner content card ---- */
   .chapter:not(.hero):not(.finale) .pin {
-    padding: 36px 5vw 36px 5vw;
-    align-items: center;
+    padding: 20px 5vw 40px 5vw;
+    align-items: flex-end;
     justify-content: flex-start;
   }
   .inner {
-    max-width: 92vw;
+    max-width: 100%;
     text-align: left;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
   }
 
-  /* Stronger scrim so 3D WebGL never bleeds through text */
+  /* Cinematic bottom fade instead of black box */
   .inner:not(.center)::before {
-    inset: -16px -16px;
-    background: radial-gradient(ellipse 95% 90% at 40% 50%,
-      rgba(7, 8, 11, 0.94),
-      rgba(7, 8, 11, 0.72) 80%,
-      transparent 100%);
-    border-radius: 16px;
+    inset: -100px -6vw -40px -6vw;
+    background: linear-gradient(to bottom, transparent 0%, rgba(7, 8, 11, 0.8) 50%, rgba(7, 8, 11, 0.98) 100%);
+    border-radius: 0;
+    z-index: -1;
   }
 
   /* ---- Typography scale ---- */
   .kicker {
-    font-size: 9.5px;
-    letter-spacing: 0.2em;
-    margin-bottom: 7px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    margin-bottom: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 92vw;
+    max-width: 90vw;
   }
   .title {
-    font-size: clamp(26px, 6.4vw, 40px);
+    font-size: clamp(24px, 6vw, 36px);
     line-height: 1.08;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
   }
   .serif {
-    font-size: clamp(13.5px, 3.4vw, 16px);
+    font-size: clamp(13px, 3.2vw, 15px);
     line-height: 1.38;
-    margin-bottom: 9px;
-  }
-
-  /* Hide long prose paragraph — serif already summarises */
-  .lede { display: none; }
-
-  /* ---- Beats list: compact, descriptions clipped to 2 lines ---- */
-  .beats {
-    gap: 7px;
     margin-bottom: 12px;
   }
+
+  /* Hide long prose paragraph */
+  .lede { display: none; }
+
+  /* ---- Beats list: ultra-minimal 1-line previews ---- */
+  .beats {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
   .beats li {
-    font-size: clamp(11px, 2.8vw, 13px);
-    line-height: 1.42;
-    gap: 7px;
+    font-size: clamp(10.5px, 2.6vw, 12px);
+    line-height: 1.35;
+    gap: 6px;
   }
   .beats li span {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
   .beats b {
-    font-size: 10.5px;
+    font-size: 10px;
     padding-top: 1px;
     flex-shrink: 0;
   }
@@ -769,8 +768,8 @@ body {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 5px;
-    margin-top: 8px;
-    padding-bottom: 2px;
+    margin-top: 6px;
+    padding-bottom: 4px;
   }
   .stats::-webkit-scrollbar { display: none; }
   .stats span {
@@ -778,6 +777,8 @@ body {
     font-size: 8px;
     white-space: nowrap;
     flex-shrink: 0;
+    text-shadow: none;
+    background: rgba(244, 246, 250, 0.1);
   }
 
   /* ---- Finale directory ---- */
