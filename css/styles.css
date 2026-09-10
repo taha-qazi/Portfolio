@@ -629,6 +629,11 @@ body {
 /* ——— Responsive (Tablets & Mobile Phones) ——— */
 
 @media (max-width: 900px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
   .chapter {
     min-height: 140vh;
     min-height: 140svh;
