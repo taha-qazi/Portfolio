@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------------
-% Taha Bin Yousuf - Curriculum Vitae (3-Page Comprehensive Tech Resume)
-% Ready for Overleaf (pdflatex) / ATS-Friendly & Clean LaTeX Architecture
+% Taha Bin Yousuf - Curriculum Vitae (Exact 3-Page Balanced Architecture)
+% Formatted for Overleaf (pdflatex) / Zero Spillover / ATS-Friendly
 %-------------------------------------------------------------------------------
 
 \documentclass[letterpaper,10pt]{article}
@@ -24,12 +24,12 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Page Margins (Calibrated for crisp spacing across 3 pages)
-\addtolength{\oddsidemargin}{-0.55in}
-\addtolength{\evensidemargin}{-0.55in}
-\addtolength{\textwidth}{1.1in}
-\addtolength{\topmargin}{-0.55in}
-\addtolength{\textheight}{1.1in}
+% Page Margins (Calibrated for strict 3-page budget)
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.65in}
+\addtolength{\textheight}{1.3in}
 
 \urlstyle{same}
 
@@ -39,7 +39,7 @@
 
 % Section Title Formatting
 \titleformat{\section}{
-  \vspace{4pt}\scshape\raggedright\large\bfseries
+  \vspace{3pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
 
 % Custom Bullet & Subheading Commands
@@ -50,7 +50,7 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{2pt}\item
+  \vspace{1.5pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
@@ -58,7 +58,7 @@
 }
 
 \newcommand{\resumeProjectHeading}[3]{
-  \vspace{3pt}\item
+  \vspace{2.5pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \small #2 \\
       \textit{\small #3} & \\
@@ -79,15 +79,15 @@
 \begin{document}
 
 %===============================================================================
-% PAGE 1: HEADER, SUMMARY, EDUCATION & INDUSTRY WORK EXPERIENCE
+% PAGE 1: HEADER, SUMMARY, EDUCATION & COMPLETE INDUSTRY WORK EXPERIENCE
 %===============================================================================
 
-%----------HEADING----------
+%----------HEADING (NO UNDERLINES)----------
 \begin{center}
-    {\Huge \scshape Taha Bin Yousuf} \\ \vspace{6pt}
+    {\Huge \scshape Taha Bin Yousuf} \\ \vspace{5pt}
     \small Lahore, Pakistan \ --- \ 
-    \href{mailto:tahaqazi417@gmail.com}{\underline{tahaqazi417@gmail.com}} \ --- \ 
-    \href{tel:+923107127143}{\underline{+92 310 7127143}} \ --- \ 
+    \href{mailto:tahaqazi417@gmail.com}{tahaqazi417@gmail.com} \ --- \ 
+    \href{tel:+923107127143}{+92 310 7127143} \ --- \ 
     \href{https://linkedin.com/in/taha-bin-yousuf-851726414}{\textbf{LinkedIn}} \ --- \ 
     \href{https://github.com/taha-qazi}{\textbf{GitHub}}
 \end{center}
@@ -105,12 +105,11 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
       {COMSATS University Islamabad, Lahore Campus}{Lahore, Pakistan}
       {Bachelor of Science in Software Engineering (BS SE) --- Class of 2027}{2023 -- Present}
       \resumeItemListStart
-        \resumeItem{\textbf{Core Engineering Coursework:} Data Structures \& Algorithms, Operating Systems, Database Management Systems (3NF/BCNF), Object-Oriented Software Engineering, Software Architecture \& Design, Machine Learning, Parallel \& Distributed Computing, Web Engineering, Mobile Application Development.}
-        \resumeItem{\textbf{Academic Focus:} High-performance parallel compute kernels, scalable enterprise backends, atomic transactions, and computer vision architectures.}
+        \resumeItem{\textbf{Core Engineering Coursework:} Data Structures \& Algorithms, Operating Systems, Database Systems (3NF/BCNF), Object-Oriented Software Engineering, Software Architecture \& Design, Machine Learning, Parallel \& Distributed Computing, Web Engineering, Mobile App Development.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
-%-----------EXPERIENCE-----------
+%-----------WORK EXPERIENCE-----------
 \section{Work Experience}
   \resumeSubHeadingListStart
 
@@ -118,20 +117,18 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
       {SKETCH2STACK}{Lahore, Pakistan}
       {Co-Founder \& Systems Lead}{Jun 2026 -- Present}
       \resumeItemListStart
-        \resumeItem{Co-founded an independent software studio delivering 5+ production-grade web, mobile, and backend systems across wholesale retail, food service, jewelry eCommerce, real estate, and automotive industries.}
-        \resumeItem{Engineered full-stack architectures using Next.js (App Router), FastAPI, Node.js, and PostgreSQL; designed normalized schemas, transactional integrity ledgers, and background worker queues.}
-        \resumeItem{Implemented offline-resilient local sync mechanisms using SQLite and indexed client stores, ESC/POS thermal receipt printing pipelines, barcode scanner listeners ($<), and granular Role-Based Access Control (RBAC).}
-        \resumeItem{Led technical scoping, database schema design, sprint planning, and automated CI/CD deployment pipelines on Vercel and VPS cloud infrastructure.}
+        \resumeItem{Co-founded an independent software studio delivering 5+ production-grade web, mobile, and backend systems across wholesale retail, food service, luxury jewelry eCommerce, commercial real estate, and automotive industries.}
+        \resumeItem{Engineered full-stack architectures using Next.js (App Router), FastAPI, Node.js, and PostgreSQL; designed normalized schemas, transactional integrity ledgers, background worker queues, and automated CI/CD deployment pipelines.}
+        \resumeItem{Implemented offline-resilient local sync mechanisms using SQLite and indexed client stores, ESC/POS thermal receipt printing pipelines, hardware barcode scanner listeners ($<), and granular Role-Based Access Control (RBAC).}
       \resumeItemListEnd
 
     \resumeSubheading
       {Solution A \& I}{Remote}
       {Full Stack Python Engineer Intern}{Aug 2026 -- Oct 2026}
       \resumeItemListStart
-        \resumeItem{Executed Django REST API migration from a legacy Laravel fleet-management platform; developed core business logic for dispatches, multi-stop deliveries, device management, and secure JWT authentication.}
-        \resumeItem{Engineered a fleet telematics analytics and reporting engine featuring 18+ endpoints: Plant-to-Warehouse (PTW) supply-chain tracking, geofence compliance calculators, driver safety metrics, POI coordinate mapping, and automated ReportLab PDF export generators.}
-        \resumeItem{Standardized external Traccar GPS server gateway integrations using dedicated service facades; automated vehicle geofence permissions linking to trigger real-time enter/exit events.}
-        \resumeItem{Applied enterprise Leaf-Pattern architecture across service layers, wrapped database mutations in atomic transactions (\texttt{@transaction.atomic()}), eliminated N+1 query bottlenecks via \texttt{.select\_related()} and \texttt{.prefetch\_related()}, and enforced strict \texttt{\{"success": true, "data": ...\}} frontend response schemas.}
+        \resumeItem{Executed Django REST API migration from a legacy Laravel fleet-management platform; developed core business logic for logistics dispatches, multi-stop deliveries, GPS device management, and secure JWT authentication sessions.}
+        \resumeItem{Engineered a fleet telematics analytics and reporting engine featuring 18+ endpoints: Plant-to-Warehouse (PTW) supply-chain tracking, geofence compliance calculators, driver safety metrics, POI coordinate mapping, and ReportLab PDF export generators.}
+        \resumeItem{Applied enterprise Leaf-Pattern service layers, wrapped database mutations in atomic transactions (\texttt{@transaction.atomic()}), eliminated N+1 query bottlenecks via \texttt{.select\_related()} and \texttt{.prefetch\_related()}, and standardized external Traccar GPS gateway integrations.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -139,17 +136,15 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
       {Machine Learning Intern}{Aug 2026 -- Sep 2026}
       \resumeItemListStart
         \resumeItem{Developed, trained, and benchmarked classical machine learning and deep learning pipelines in Python using Scikit-Learn, Pandas, NumPy, and TensorFlow.}
-        \resumeItem{Constructed an end-to-end NLP spam detection pipeline (TF-IDF vectorization with Naive Bayes classification), a Convolutional Neural Network (CNN) on MNIST handwritten digits achieving 98.4\% test accuracy, and California Housing price regression models.}
-        \resumeItem{Conducted exploratory data analysis (EDA), feature engineering, automated outlier detection, and hyperparameter cross-validation to maximize model generalization.}
+        \resumeItem{Constructed an end-to-end NLP spam detection pipeline (TF-IDF vectorization with Naive Bayes), a Convolutional Neural Network (CNN) on MNIST handwritten digits achieving 98.4\% test accuracy, and California Housing price regression models.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Fentix Tech}{Remote}
       {Full-Stack Web Development Intern}{Sep 2026 -- Oct 2026}
       \resumeItemListStart
-        \resumeItem{Completed comprehensive full-stack track covering HTML5, CSS3, Bootstrap, Responsive UI/UX Design, JavaScript (ES6+), React.js, Node.js, and MongoDB.}
-        \resumeItem{Engineered modular, responsive front-end components in React.js and Bootstrap with stateful validation forms, interactive dashboards, and cross-browser consistency.}
-        \resumeItem{Built RESTful backend APIs in Node.js and Express, implementing secure JWT authentication, CORS middleware, password hashing with bcrypt, and transactional Mongoose models.}
+        \resumeItem{Completed intensive full-stack development track focusing on HTML5, CSS3, Bootstrap, Responsive UI/UX Design, JavaScript (ES6+), React.js, Node.js, and MongoDB.}
+        \resumeItem{Engineered modular, responsive front-end interfaces in React.js and Bootstrap alongside RESTful backend APIs in Node.js and Express with secure JWT authentication middleware, CORS handling, and transactional Mongoose models.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -167,9 +162,9 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
         {Next.js 16, FastAPI, Python, PostgreSQL, PWA, GS1/GTIN 2D QR Parser, Gemini Vision OCR}
         \resumeItemListStart
           \resumeItem{\textbf{Shipped Production Core:} Engineered a high-throughput Clinic \& Pharmacy POS system for clinical practices and retail pharmacy counters, featuring sub-50ms hardware barcode scanner interception, Pakistani 14-digit QR GTIN parsing, and granular Role-Based Access Control (RBAC).}
-          \resumeItem{\textbf{Smart Inventory \& FEFO Batching:} Implemented strict First-Expired, First-Out (FEFO) batch deduction logic across pharmaceutical stock, completely eliminating expired drug stock liability and automated shelf batch rotation.}
+          \resumeItem{\textbf{Smart Inventory \& FEFO Batching:} Implemented strict First-Expired, First-Out (FEFO) batch deduction logic across pharmaceutical stock, completely eliminating expired drug stock liability and automating shelf batch rotation.}
           \resumeItem{\textbf{Multimodal Invoice Extraction:} Integrated Google Gemini Multimodal OCR to extract medicine brand names, dosages, batch numbers, and expiry dates directly from physical supplier invoices and packing slip PDFs into digital accounting ledgers.}
-          \resumeItem{\textbf{Scalable Roadmap Architecture:} Designed modular decoupled roadmap deployable as standalone clinical EHR (OPD queues, digital prescriptions), standalone retail pharmacy POS, centralized supplier procurement hub, and live multi-branch geolocation map network.}
+          \resumeItem{\textbf{Scalable Roadmap Architecture:} Designed modular decoupled roadmap deployable as standalone clinical EHR (OPD queues, digital prescriptions), retail pharmacy POS, centralized supplier procurement hub, and live multi-branch geolocation map network.}
         \resumeItemListEnd
 
     \resumeProjectHeading
@@ -239,14 +234,16 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
         {CozyNest Mobile E-Commerce App \normalfont(Mobile Application Development)}{2025}
         {Flutter, Dart, Firebase Authentication, Cloud Firestore, Stateful Cart}
         \resumeItemListStart
-          \resumeItem{\textbf{Cross-Platform Mobile Client:} Engineered a cross-platform mobile shopping application in Flutter with secure Firebase Authentication, real-time Cloud Firestore inventory sync, dynamic product search, and persistent checkout cart.}
+          \resumeItem{\textbf{Cross-Platform Mobile Client:} Engineered a cross-platform mobile shopping application in Flutter with secure Firebase Authentication, dynamic product search, and persistent checkout cart.}
+          \resumeItem{\textbf{Real-Time Synchronization:} Integrated Cloud Firestore real-time inventory synchronization, instant cart status updates, and secure user session persistence.}
         \resumeItemListEnd
 
     \resumeProjectHeading
         {Movie Recommendation \& Streaming Hub \normalfont(Web Engineering)}{2025}
         {MERN Stack (MongoDB, Express, React, Node.js), Stripe, JazzCash, EasyPaisa}
         \resumeItemListStart
-          \resumeItem{\textbf{Full-Stack Media Portal:} Developed a recommendation web portal featuring personalized genre filtering, MongoDB aggregation pipelines, and dual payment gateway integrations (Stripe + localized JazzCash and EasyPaisa).}
+          \resumeItem{\textbf{Full-Stack Media Portal:} Developed a recommendation web portal featuring personalized genre filtering, user watchlists, and MongoDB aggregation pipelines.}
+          \resumeItem{\textbf{Localized Payment Gateways:} Integrated dual payment infrastructure supporting international card checkout via Stripe alongside localized mobile wallet payments (JazzCash and EasyPaisa).}
         \resumeItemListEnd
 
     \resumeProjectHeading
@@ -254,6 +251,7 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
         {Java, Swing/JavaFX, OOP Principles, Relational Data Schemas, File Ledgers}
         \resumeItemListStart
           \resumeItem{\textbf{Desktop Enterprise Application:} Built a desktop management GUI applying the four pillars of Object-Oriented Programming (encapsulation, inheritance, polymorphism, and abstraction) for product tracking, supplier ledgers, and cashier sales.}
+          \resumeItem{\textbf{Inventory \& Ledger Auditing:} Implemented structured file ledger persistence, supplier purchase order tracking, low-stock alerts, and daily sales auditing.}
         \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -262,12 +260,12 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Python, C/C++, JavaScript (ES6+), TypeScript, SQL, Dart, Java, HTML5, CSS3} \\ \vspace{2pt}
+     \textbf{Languages}{: Python, C/C++, JavaScript (ES6+), TypeScript, SQL, Dart, Java, HTML5, CSS3, Bash} \\ \vspace{2pt}
      \textbf{Frontend \& Mobile}{: Next.js (App Router), React.js, Flutter, Tailwind CSS, Bootstrap, Redux Toolkit, Responsive UI/UX} \\ \vspace{2pt}
-     \textbf{Backend \& APIs}{: FastAPI, Django, Django REST Framework, Node.js, Express.js, RESTful APIs, JWT Auth, Traccar Telematics} \\ \vspace{2pt}
+     \textbf{Backend \& Microservices}{: FastAPI, Django, Django REST Framework, Node.js, Express.js, RESTful APIs, JWT Auth, Traccar Telematics} \\ \vspace{2pt}
      \textbf{AI, Computer Vision \& ML}{: PyTorch, TensorFlow, OpenCV, Scikit-Learn, Pandas, NumPy, Gemini Multimodal API, Prompt Engineering} \\ \vspace{2pt}
      \textbf{Databases \& Storage}{: PostgreSQL, SQLite, MongoDB, Firebase Firestore, Mongoose, Relational SQL (3NF/BCNF), Redis} \\ \vspace{2pt}
-     \textbf{Developer Tools \& DevOps}{: Git, GitHub, Docker, Postman, Linux (Bash), Vercel CI/CD, OpenMP, PWA, Swagger OpenAPI, ESC/POS Hardware}
+     \textbf{Developer Tools \& DevOps}{: Git, GitHub, Docker, Postman, Linux (Ubuntu), Vercel CI/CD, OpenMP, PWA, Swagger OpenAPI, ESC/POS Hardware}
     }}
  \end{itemize}
 
@@ -275,7 +273,7 @@ Full-Stack Systems Engineer, AI Developer, and Co-Founder at \textbf{SKETCH2STAC
 \section{Certifications \& Honors}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Google --- Crash Course on Python} --- Verified Coursera Credential (Grade Achieved: 91.50\%) \\ \vspace{2pt}
+     \textbf{Google --- Crash Course on Python} --- Verified Coursera Credential (Grade Achieved: 91.50\%) in core Python, OOP, and automation \\ \vspace{2pt}
      \textbf{Google --- Google Prompting Essentials Specialization} --- 4-Course Verified Specialization in Workflow Automation \& AI Prompting \\ \vspace{2pt}
      \textbf{Academic Merit \& Coursework Honors} --- COMSATS University Islamabad, Lahore Campus (Software Engineering Department)
     }}
