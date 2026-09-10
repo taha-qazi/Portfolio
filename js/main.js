@@ -151,8 +151,8 @@
     camera.updateProjectionMatrix();
 
     if (grainCanvas) {
-      grainCanvas.width = W / 3;
-      grainCanvas.height = H / 3;
+      grainCanvas.width = Math.max(1, Math.floor(W / 3));
+      grainCanvas.height = Math.max(1, Math.floor(H / 3));
     }
 
     sides = isMobile ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : SIDE_DESKTOP.slice();
@@ -243,7 +243,9 @@
   // Grain generator
   function renderGrain() {
     if (!grainCtx) return;
-    const gw = grainCanvas.width, gh = grainCanvas.height;
+    const gw = Math.floor(grainCanvas.width);
+    const gh = Math.floor(grainCanvas.height);
+    if (gw <= 0 || gh <= 0) return; // Prevent IndexSizeError
     const imgData = grainCtx.createImageData(gw, gh);
     const d = imgData.data;
     for (let i = 0; i < d.length; i += 4) {
