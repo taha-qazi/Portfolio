@@ -659,14 +659,21 @@ body {
   .hud-bl { bottom: 14px; left: 14px; font-size: 8.5px; letter-spacing: 0.16em; }
   .hud-br { display: none !important; }
 
-  /* Hero on mobile: position text cleanly so it doesn't obscure 3D particle face */
+  /* Hero on mobile: position text cleanly with balanced framing over 3D particle face */
   .chapter.hero .pin {
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding-top: calc(10vh + 15px);
+    padding: 50px 5vw 40px 5vw;
   }
   .hero .inner {
     max-width: 92vw;
+    transform: translateY(calc(var(--hp, 0) * -8vh)) scale(calc(1 - var(--hp, 0) * 0.1));
+  }
+  .hero .kicker,
+  .hero .roles-row,
+  .hero .serif,
+  .hero .scroll-cue {
+    filter: opacity(calc(1 - var(--hp, 0) * 2.4));
   }
   .hero .title-hero {
     font-size: clamp(34px, 8.8vw, 56px);

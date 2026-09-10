@@ -232,10 +232,19 @@
         ring2.material.opacity = 0.14 * fade;
         dust.rotation.y = t * 0.008;
 
+        const isMob = window.innerWidth <= 860 || (window.innerWidth / Math.max(1, window.innerHeight) < 0.9);
+        const targetScale = isMob ? 0.52 : 1.0;
+        portrait.scale.setScalar(targetScale);
+        portrait.position.y = isMob ? -1.2 : 2;
+        ring.scale.setScalar(isMob ? 0.65 : 1.0);
+        ring2.scale.setScalar(isMob ? 0.65 : 1.0);
+
         if (port.pts) {
           // Immediately solid on load, subtly breathing, dissolves into flight out on scroll
           const assemble = ease(clamp01((t + 0.4) * 2.0));
-          const k = assemble * (1 - ease(clamp01((p - 0.52) * 3.2)));
+          const holdThreshold = isMob ? 0.22 : 0.48;
+          const dissolveSpeed = isMob ? 4.2 : 3.2;
+          const k = assemble * (1 - ease(clamp01((p - holdThreshold) * dissolveSpeed)));
           if (Math.abs(k - port.lastK) > 0.0008) {
             port.lastK = k;
             const { cur, tgt, scat } = port;
@@ -252,7 +261,16 @@
         }
       },
       // Start clearly framed, then dolly in smoothly on scroll
-      mod: (p) => ({ dx: 0, dy: 1.5 + 1.5 * ease(p), dz: 48 - 78 * ease(p), df: -3 * ease(p) }),
+      mod: (p) => {
+        const isMob = window.innerWidth <= 860 || (window.innerWidth / Math.max(1, window.innerHeight) < 0.9);
+        const pushZ = isMob ? 30 : 78;
+        return {
+          dx: 0,
+          dy: (isMob ? 0 : 1.5) + 1.5 * ease(p),
+          dz: 48 - pushZ * ease(p),
+          df: (isMob ? -1 : -3) * ease(p)
+        };
+      },
     };
   }
 
