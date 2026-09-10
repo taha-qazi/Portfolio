@@ -285,7 +285,7 @@ body {
 .chapter:not(.hero):not(.finale) .pin {
   justify-content: flex-start;
   padding: clamp(44px, 5.5vh, 56px) 5vw clamp(40px, 4.8vh, 48px) 6.5vw;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .inner {
