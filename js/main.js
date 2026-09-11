@@ -69,35 +69,66 @@
     return ch;
   });
 
-  // --- The Central Data Spine ---
-  const spineConnectors = new T.Group();
-  (function buildSpine() {
-    // Outer glass tube
-    const spineGeo = new T.CylinderGeometry(0.4, 0.4, 10 * D, 8);
-    spineGeo.rotateX(Math.PI / 2);
-    spineGeo.translate(0, 0, -5 * D);
-    const spineMat = new T.MeshBasicMaterial({ color: 0x00f5a0, transparent: true, opacity: 0.1, wireframe: true });
-    scene.add(new T.Mesh(spineGeo, spineMat));
+  // --- THE NEURAL SKYSCRAPER ---
+  const neuralTower = new T.Group();
+  // Place the tower at x=8. Camera is at x=0 looking at x~10. Projects are at x~24.
+  // This places the tower beautifully in the mid-ground.
+  neuralTower.position.set(8, 0, 0);
+  scene.add(neuralTower);
 
-    // Inner glowing core
-    const coreGeo = new T.CylinderGeometry(0.1, 0.1, 10 * D + 200, 4);
-    coreGeo.rotateX(Math.PI / 2);
-    coreGeo.translate(0, 0, -5 * D);
-    const coreMat = new T.MeshBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.6 });
-    scene.add(new T.Mesh(coreGeo, coreMat));
+  const towerBranches = new T.Group();
+  neuralTower.add(towerBranches);
 
-    scene.add(spineConnectors);
+  (function buildNeuralSkyscraper() {
+    // 1. The Spinal Cord (Fiber Optic Neural Strands)
+    // A bundle of 18 glowing strands running the entire depth of the portfolio
+    const strandMatCyan = new T.MeshBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.35 });
+    const strandMatEmerald = new T.MeshBasicMaterial({ color: 0x00f5a0, transparent: true, opacity: 0.25 });
+    
+    for (let i = 0; i < 18; i++) {
+      const radius = Math.random() * 2.2;
+      const angle = Math.random() * Math.PI * 2;
+      const thickness = 0.01 + Math.random() * 0.05;
+      
+      const strand = new T.CylinderGeometry(thickness, thickness, 10 * D + 400, 4);
+      strand.rotateX(Math.PI / 2);
+      strand.translate(Math.cos(angle) * radius, Math.sin(angle) * radius, -5 * D);
+      
+      neuralTower.add(new T.Mesh(strand, Math.random() > 0.4 ? strandMatEmerald : strandMatCyan));
+    }
+
+    // 2. The Floors (Structural Hex Hubs & Neural Nodes)
+    const hexMat = new T.MeshBasicMaterial({ color: 0x8893a7, wireframe: true, transparent: true, opacity: 0.15 });
+    const nodeMat = new T.MeshBasicMaterial({ color: 0x00f5a0, wireframe: true, transparent: true, opacity: 0.6 });
+    
+    for (let i = 1; i <= 9; i++) {
+      const zDepth = -i * D;
+      
+      // Hexagonal Floor Ring
+      const hexFloor = new T.CylinderGeometry(5, 5, 0.4, 6);
+      hexFloor.rotateX(Math.PI / 2);
+      const hexMesh = new T.Mesh(hexFloor, hexMat);
+      hexMesh.position.set(0, 0, zDepth);
+      neuralTower.add(hexMesh);
+
+      // Central Neural Node for this floor
+      const nodeGeo = new T.OctahedronGeometry(1.4, 0);
+      const node = new T.Mesh(nodeGeo, nodeMat);
+      node.position.set(0, 0, zDepth);
+      node.rotation.z = Math.random() * Math.PI;
+      neuralTower.add(node);
+    }
   })();
 
   // Track dust ambient particles
   (function addTrackDust() {
     const pos = [];
     for (let i = 0; i < 1600; i++) {
-      // Cluster dust closer to the central spine (radius 60)
+      // Swarm dust around the Neural Tower (x=8, y=0)
       const a = Math.random() * Math.PI * 2;
-      const r = Math.random() * 80;
+      const r = Math.random() * 120; // Spread radius
       pos.push(
-        Math.cos(a) * r,
+        8 + Math.cos(a) * r,
         Math.sin(a) * r,
         150 - Math.random() * (10 * D + 400)
       );
@@ -186,19 +217,23 @@
     });
 
     // Rebuild the data spine connectors
-    spineConnectors.clear();
+    towerBranches.clear();
     const connMat = new T.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.28 });
     chapters.forEach((ch, i) => {
-      if (i === 0) return; // Skip hero
-      const cx = sides[i] || 0;
+      if (i === 0 || i > 9) return; // Skip hero and finale
+      const cx = (sides[i] || 0) - 8; // relative to tower at x=8
       const cy = isMobile ? 18 : 0;
       const cz = -i * D;
-      // Draw horizontal beam
+      
+      // Draw a faceted circuit-board style synapse branch
       const points = [];
-      points.push(new T.Vector3(0, cy, cz));
+      points.push(new T.Vector3(0, 0, cz));
+      points.push(new T.Vector3(cx * 0.3, cy * 0.3, cz));
+      points.push(new T.Vector3(cx * 0.6, cy, cz));
       points.push(new T.Vector3(cx, cy, cz));
+      
       const geo = new T.BufferGeometry().setFromPoints(points);
-      spineConnectors.add(new T.Line(geo, connMat));
+      towerBranches.add(new T.Line(geo, connMat));
     });
 
     sections.forEach((s) => {
