@@ -12,9 +12,9 @@
   const lerp = (a, b, k) => a + (b - a) * k;
   const smooth = (k) => k * k * (3 - 2 * k);
 
-  const D = 420;               // distance between stations on Z
-  const CAM_BACK = 62;         // camera rest distance from station
-  let HOLD = 0.52;             // fraction of station spent holding (overridden on mobile)
+  const D = 420; // distance between stations on Z
+  const CAM_BACK = 62; // camera rest distance from station
+  let HOLD = 0.52; // fraction of station spent holding (overridden on mobile)
 
   const canvas = document.getElementById("scene");
   const grainCanvas = document.getElementById("grain");
@@ -26,15 +26,17 @@
   const dotsNav = document.getElementById("dots");
   const slate = document.getElementById("slate");
 
-  const sections = Array.from(document.querySelectorAll("[data-scene]")).map((el) => ({
-    el,
-    label: el.dataset.label || "",
-    year: el.dataset.year || "2023 → 2027",
-    accent: el.dataset.accent || "#00f5a0",
-    num: el.querySelector(".num"),
-    top: 0,
-    height: 1,
-  }));
+  const sections = Array.from(document.querySelectorAll("[data-scene]")).map(
+    (el) => ({
+      el,
+      label: el.dataset.label || "",
+      year: el.dataset.year || "2023 → 2027",
+      accent: el.dataset.accent || "#00f5a0",
+      num: el.querySelector(".num"),
+      top: 0,
+      height: 1,
+    }),
+  );
 
   const LAST = sections.length - 1;
 
@@ -48,7 +50,11 @@
   // Three.js stage setup
   let renderer;
   try {
-    renderer = new T.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
+    renderer = new T.WebGLRenderer({
+      canvas,
+      antialias: true,
+      powerPreference: "high-performance",
+    });
   } catch (err) {
     document.body.classList.add("no3d");
     return;
@@ -69,75 +75,31 @@
     return ch;
   });
 
-  // --- THE NEURAL SKYSCRAPER ---
-  const neuralTower = new T.Group();
-  // Place the tower at x=8. Camera is at x=0 looking at x~10. Projects are at x~24.
-  // This places the tower beautifully in the mid-ground.
-  neuralTower.position.set(8, 0, 0);
-  scene.add(neuralTower);
-
-  const towerBranches = new T.Group();
-  neuralTower.add(towerBranches);
-
-  (function buildNeuralSkyscraper() {
-    // 1. The Spinal Cord (Fiber Optic Neural Strands)
-    // A bundle of 18 glowing strands running the entire depth of the portfolio
-    const strandMatCyan = new T.MeshBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.35 });
-    const strandMatEmerald = new T.MeshBasicMaterial({ color: 0x00f5a0, transparent: true, opacity: 0.25 });
-    
-    for (let i = 0; i < 18; i++) {
-      const radius = Math.random() * 2.2;
-      const angle = Math.random() * Math.PI * 2;
-      const thickness = 0.01 + Math.random() * 0.05;
-      
-      const strand = new T.CylinderGeometry(thickness, thickness, 10 * D + 400, 4);
-      strand.rotateX(Math.PI / 2);
-      strand.translate(Math.cos(angle) * radius, Math.sin(angle) * radius, -5 * D);
-      
-      neuralTower.add(new T.Mesh(strand, Math.random() > 0.4 ? strandMatEmerald : strandMatCyan));
-    }
-
-    // 2. The Floors (Structural Hex Hubs & Neural Nodes)
-    const hexMat = new T.MeshBasicMaterial({ color: 0x8893a7, wireframe: true, transparent: true, opacity: 0.15 });
-    const nodeMat = new T.MeshBasicMaterial({ color: 0x00f5a0, wireframe: true, transparent: true, opacity: 0.6 });
-    
-    for (let i = 1; i <= 9; i++) {
-      const zDepth = -i * D;
-      
-      // Hexagonal Floor Ring
-      const hexFloor = new T.CylinderGeometry(5, 5, 0.4, 6);
-      hexFloor.rotateX(Math.PI / 2);
-      const hexMesh = new T.Mesh(hexFloor, hexMat);
-      hexMesh.position.set(0, 0, zDepth);
-      neuralTower.add(hexMesh);
-
-      // Central Neural Node for this floor
-      const nodeGeo = new T.OctahedronGeometry(1.4, 0);
-      const node = new T.Mesh(nodeGeo, nodeMat);
-      node.position.set(0, 0, zDepth);
-      node.rotation.z = Math.random() * Math.PI;
-      neuralTower.add(node);
-    }
-  })();
-
-  // Track dust ambient particles
+  // Track dust ambient particles - unified void field
   (function addTrackDust() {
     const pos = [];
-    for (let i = 0; i < 1600; i++) {
-      // Swarm dust around the Neural Tower (x=8, y=0)
-      const a = Math.random() * Math.PI * 2;
-      const r = Math.random() * 120; // Spread radius
+    for (let i = 0; i < 2500; i++) {
+      // Spread dust evenly throughout the entire track
       pos.push(
-        8 + Math.cos(a) * r,
-        Math.sin(a) * r,
-        150 - Math.random() * (10 * D + 400)
+        (Math.random() - 0.5) * 120, // X spread
+        (Math.random() - 0.5) * 100, // Y spread
+        150 - Math.random() * (10 * D + 400), // Z depth
       );
     }
     const geo = new T.BufferGeometry();
     geo.setAttribute("position", new T.Float32BufferAttribute(pos, 3));
-    scene.add(new T.Points(geo, new T.PointsMaterial({
-      color: 0x00f5a0, size: 1.1, transparent: true, opacity: 0.35, depthWrite: false
-    })));
+    scene.add(
+      new T.Points(
+        geo,
+        new T.PointsMaterial({
+          color: 0x00f5a0,
+          size: 1.1,
+          transparent: true,
+          opacity: 0.25,
+          depthWrite: false,
+        }),
+      ),
+    );
   })();
 
   // Floating geometric wireframe shards (The fragmented data)
@@ -148,13 +110,21 @@
       new T.TetrahedronGeometry(2.0, 0),
       new T.BoxGeometry(1.8, 1.8, 1.8),
     ];
-    const mat = new T.LineBasicMaterial({ color: 0x8893a7, transparent: true, opacity: 0.28 });
+    const mat = new T.LineBasicMaterial({
+      color: 0x8893a7,
+      transparent: true,
+      opacity: 0.28,
+    });
     for (let i = 0; i < 110; i++) {
       const seg = Math.floor(Math.random() * 9);
       const off = 0.2 + Math.random() * 0.6;
       const m = new T.LineSegments(new T.EdgesGeometry(geos[i % 3]), mat);
       const side = Math.random() < 0.5 ? -1 : 1;
-      m.position.set(side * (8 + Math.random() * 60), (Math.random() - 0.5) * 60, -(seg + off) * D);
+      m.position.set(
+        side * (8 + Math.random() * 60),
+        (Math.random() - 0.5) * 60,
+        -(seg + off) * D,
+      );
       shards.add(m);
     }
     scene.add(shards);
@@ -176,20 +146,34 @@
     geo.setAttribute("position", new T.Float32BufferAttribute(pos, 3));
     streaks = new T.LineSegments(
       geo,
-      new T.LineBasicMaterial({ color: 0x00f5a0, transparent: true, opacity: 0 })
+      new T.LineBasicMaterial({
+        color: 0x00f5a0,
+        transparent: true,
+        opacity: 0,
+      }),
     );
     scene.add(streaks);
   })();
 
   // Mouse parallax
-  let mx = 0, my = 0, mxS = 0, myS = 0;
-  window.addEventListener("mousemove", (e) => {
-    mx = (e.clientX / W - 0.5) * 2;
-    my = (e.clientY / H - 0.5) * 2;
-  }, { passive: true });
+  let mx = 0,
+    my = 0,
+    mxS = 0,
+    myS = 0;
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      mx = (e.clientX / W - 0.5) * 2;
+      my = (e.clientY / H - 0.5) * 2;
+    },
+    { passive: true },
+  );
 
   // Sizing and responsive measurement
-  let W = 0, H = 0, docH = 1, isMobile = false;
+  let W = 0,
+    H = 0,
+    docH = 1,
+    isMobile = false;
   let aspectComp = 0;
 
   function measure() {
@@ -197,10 +181,12 @@
     H = window.innerHeight;
     docH = document.documentElement.scrollHeight;
     isMobile = W <= 900 || ("ontouchstart" in window && W <= 1024);
-    window._cachedIsMob = W <= 860 || (W / Math.max(1, H) < 0.9);
+    window._cachedIsMob = W <= 860 || W / Math.max(1, H) < 0.9;
     HOLD = isMobile ? 0.28 : 0.52;
-    aspectComp = isMobile ? 18 : (W < 1100 ? 8 : 0);
-    renderer.setPixelRatio(Math.min(isMobile ? 1.4 : 1.75, window.devicePixelRatio || 1));
+    aspectComp = isMobile ? 18 : W < 1100 ? 8 : 0;
+    renderer.setPixelRatio(
+      Math.min(isMobile ? 1.4 : 1.75, window.devicePixelRatio || 1),
+    );
     renderer.setSize(W, H);
     camera.aspect = W / H;
     camera.updateProjectionMatrix();
@@ -211,29 +197,9 @@
     }
 
     sides = isMobile ? [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : SIDE_DESKTOP.slice();
-    chapters.forEach((ch, i) => { 
-      ch.group.position.x = sides[i] || 0; 
-      if (i !== 0) ch.group.position.y = isMobile ? 18 : 0;
-    });
-
-    // Rebuild the data spine connectors
-    towerBranches.clear();
-    const connMat = new T.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.28 });
     chapters.forEach((ch, i) => {
-      if (i === 0 || i > 9) return; // Skip hero and finale
-      const cx = (sides[i] || 0) - 8; // relative to tower at x=8
-      const cy = isMobile ? 18 : 0;
-      const cz = -i * D;
-      
-      // Draw a faceted circuit-board style synapse branch
-      const points = [];
-      points.push(new T.Vector3(0, 0, cz));
-      points.push(new T.Vector3(cx * 0.3, cy * 0.3, cz));
-      points.push(new T.Vector3(cx * 0.6, cy, cz));
-      points.push(new T.Vector3(cx, cy, cz));
-      
-      const geo = new T.BufferGeometry().setFromPoints(points);
-      towerBranches.add(new T.Line(geo, connMat));
+      ch.group.position.x = sides[i] || 0;
+      if (i !== 0) ch.group.position.y = isMobile ? 18 : 0;
     });
 
     sections.forEach((s) => {
@@ -244,10 +210,14 @@
   }
 
   let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(measure, 100);
-  }, { passive: true });
+  window.addEventListener(
+    "resize",
+    () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(measure, 100);
+    },
+    { passive: true },
+  );
   window.addEventListener("load", measure);
   if (document.fonts) document.fonts.ready.then(measure);
 
@@ -265,7 +235,6 @@
     });
   }
 
-
   // Audio system
   const bgMusic = document.getElementById("bg-music");
   const muteBtn = document.getElementById("mute-btn");
@@ -274,10 +243,13 @@
   function toggleAudio() {
     if (!bgMusic) return;
     if (bgMusic.paused) {
-      bgMusic.play().then(() => {
-        audioStarted = true;
-        if (muteBtn) muteBtn.classList.remove("muted");
-      }).catch(() => {});
+      bgMusic
+        .play()
+        .then(() => {
+          audioStarted = true;
+          if (muteBtn) muteBtn.classList.remove("muted");
+        })
+        .catch(() => {});
     } else {
       bgMusic.pause();
       if (muteBtn) muteBtn.classList.add("muted");
@@ -291,15 +263,24 @@
   function initAudioOnInteraction() {
     if (!audioStarted && bgMusic && bgMusic.paused) {
       bgMusic.volume = 0.55;
-      bgMusic.play().then(() => {
-        audioStarted = true;
-        if (muteBtn) muteBtn.classList.remove("muted");
-      }).catch(() => {});
+      bgMusic
+        .play()
+        .then(() => {
+          audioStarted = true;
+          if (muteBtn) muteBtn.classList.remove("muted");
+        })
+        .catch(() => {});
     }
   }
   window.addEventListener("click", initAudioOnInteraction, { once: true });
-  window.addEventListener("scroll", initAudioOnInteraction, { once: true, passive: true });
-  window.addEventListener("touchstart", initAudioOnInteraction, { once: true, passive: true });
+  window.addEventListener("scroll", initAudioOnInteraction, {
+    once: true,
+    passive: true,
+  });
+  window.addEventListener("touchstart", initAudioOnInteraction, {
+    once: true,
+    passive: true,
+  });
 
   // Autoplay smooth cruise
   const autoplayBtn = document.getElementById("autoplay-btn");
@@ -332,7 +313,10 @@
     const d = imgData.data;
     for (let i = 0; i < d.length; i += 4) {
       const v = Math.random() * 255;
-      d[i] = v; d[i + 1] = v; d[i + 2] = v; d[i + 3] = 22;
+      d[i] = v;
+      d[i + 1] = v;
+      d[i + 2] = v;
+      d[i + 3] = 22;
     }
     grainCtx.putImageData(imgData, 0, 0);
   }
@@ -386,11 +370,15 @@
     camera.position.set(
       dx + mxS * 2.6,
       dy - myS * 1.8,
-      -u * D + CAM_BACK + dz + aspectComp
+      -u * D + CAM_BACK + dz + aspectComp,
     );
     const kick = Math.sin(travel * Math.PI);
     const lookX = lerp(sides[idx], sides[Math.min(idx + 1, LAST)], k) * 0.45;
-    camera.lookAt(lookX + dx * 0.4 + mxS * 4, dy * 0.5 - myS * 2.5, camera.position.z - 150);
+    camera.lookAt(
+      lookX + dx * 0.4 + mxS * 4,
+      dy * 0.5 - myS * 2.5,
+      camera.position.z - 150,
+    );
     camera.rotateZ(Math.sin(u * 2.1) * 0.012 + kick * 0.034);
     camera.fov = 55 + df + kick * 10;
     camera.updateProjectionMatrix();
@@ -409,7 +397,11 @@
     if (streaks) {
       streaks.visible = kick > 0.03 && !REDUCED;
       if (streaks.visible) {
-        streaks.position.set(camera.position.x, camera.position.y, camera.position.z - 70);
+        streaks.position.set(
+          camera.position.x,
+          camera.position.y,
+          camera.position.z - 70,
+        );
         streaks.scale.z = 1 + kick * 4.5;
         streaks.material.opacity = kick * 0.22;
       }
@@ -435,12 +427,16 @@
       document.documentElement.style.setProperty("--accent", s.accent);
       const dots = dotsNav ? dotsNav.querySelectorAll(".dot") : [];
       dots.forEach((d, i) => d.classList.toggle("active", i === idx));
-      sections.forEach((sec, i) => sec.el.classList.toggle("active", i === idx));
+      sections.forEach((sec, i) =>
+        sec.el.classList.toggle("active", i === idx),
+      );
     }
-    if (s.num) s.num.style.setProperty("--py", ((0.5 - p) * 130).toFixed(1) + "px");
+    if (s.num)
+      s.num.style.setProperty("--py", ((0.5 - p) * 130).toFixed(1) + "px");
 
     const total = clamp01(y / Math.max(1, docH - H));
-    if (hudProg) hudProg.textContent = String(Math.round(total * 100)).padStart(3, "0");
+    if (hudProg)
+      hudProg.textContent = String(Math.round(total * 100)).padStart(3, "0");
     if (progressFill) progressFill.style.width = (total * 100).toFixed(2) + "%";
 
     if (!REDUCED && frame % 4 === 0) renderGrain();
