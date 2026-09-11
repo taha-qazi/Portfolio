@@ -130,8 +130,8 @@
   // Mouse parallax
   let mx = 0, my = 0, mxS = 0, myS = 0;
   window.addEventListener("mousemove", (e) => {
-    mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    my = (e.clientY / window.innerHeight - 0.5) * 2;
+    mx = (e.clientX / W - 0.5) * 2;
+    my = (e.clientY / H - 0.5) * 2;
   }, { passive: true });
 
   // Sizing and responsive measurement
@@ -143,6 +143,7 @@
     H = window.innerHeight;
     docH = document.documentElement.scrollHeight;
     isMobile = W <= 900 || ("ontouchstart" in window && W <= 1024);
+    window._cachedIsMob = W <= 860 || (W / Math.max(1, H) < 0.9);
     HOLD = isMobile ? 0.28 : 0.52;
     aspectComp = isMobile ? 18 : (W < 1100 ? 8 : 0);
     renderer.setPixelRatio(Math.min(isMobile ? 1.4 : 1.75, window.devicePixelRatio || 1));
@@ -168,7 +169,11 @@
     });
   }
 
-  window.addEventListener("resize", measure, { passive: true });
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(measure, 100);
+  }, { passive: true });
   window.addEventListener("load", measure);
   if (document.fonts) document.fonts.ready.then(measure);
 

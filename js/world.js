@@ -232,7 +232,7 @@
         ring2.material.opacity = 0.14 * fade;
         dust.rotation.y = t * 0.008;
 
-        const isMob = window.innerWidth <= 860 || (window.innerWidth / Math.max(1, window.innerHeight) < 0.9);
+        const isMob = window._cachedIsMob || false;
         const targetScale = isMob ? 0.52 : 1.0;
         portrait.scale.setScalar(targetScale);
         portrait.position.y = isMob ? -1.2 : 2;
@@ -262,7 +262,7 @@
       },
       // Start clearly framed, then dolly in smoothly on scroll
       mod: (p) => {
-        const isMob = window.innerWidth <= 860 || (window.innerWidth / Math.max(1, window.innerHeight) < 0.9);
+        const isMob = window._cachedIsMob || false;
         const pushZ = isMob ? 30 : 78;
         return {
           dx: 0,
