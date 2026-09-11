@@ -69,24 +69,47 @@
     return ch;
   });
 
+  // --- The Central Data Spine ---
+  const spineConnectors = new T.Group();
+  (function buildSpine() {
+    // Outer glass tube
+    const spineGeo = new T.CylinderGeometry(0.4, 0.4, 10 * D, 8);
+    spineGeo.rotateX(Math.PI / 2);
+    spineGeo.translate(0, 0, -5 * D);
+    const spineMat = new T.MeshBasicMaterial({ color: 0x00f5a0, transparent: true, opacity: 0.1, wireframe: true });
+    scene.add(new T.Mesh(spineGeo, spineMat));
+
+    // Inner glowing core
+    const coreGeo = new T.CylinderGeometry(0.1, 0.1, 10 * D + 200, 4);
+    coreGeo.rotateX(Math.PI / 2);
+    coreGeo.translate(0, 0, -5 * D);
+    const coreMat = new T.MeshBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.6 });
+    scene.add(new T.Mesh(coreGeo, coreMat));
+
+    scene.add(spineConnectors);
+  })();
+
   // Track dust ambient particles
   (function addTrackDust() {
     const pos = [];
     for (let i = 0; i < 1600; i++) {
+      // Cluster dust closer to the central spine (radius 60)
+      const a = Math.random() * Math.PI * 2;
+      const r = Math.random() * 80;
       pos.push(
-        (Math.random() - 0.5) * 360,
-        (Math.random() - 0.5) * 220,
-        150 - Math.random() * (9 * D + 400)
+        Math.cos(a) * r,
+        Math.sin(a) * r,
+        150 - Math.random() * (10 * D + 400)
       );
     }
     const geo = new T.BufferGeometry();
     geo.setAttribute("position", new T.Float32BufferAttribute(pos, 3));
     scene.add(new T.Points(geo, new T.PointsMaterial({
-      color: 0x00f5a0, size: 1.1, transparent: true, opacity: 0.3, depthWrite: false
+      color: 0x00f5a0, size: 1.1, transparent: true, opacity: 0.35, depthWrite: false
     })));
   })();
 
-  // Floating geometric wireframe shards
+  // Floating geometric wireframe shards (The fragmented data)
   const shards = new T.Group();
   (function addShards() {
     const geos = [
@@ -100,7 +123,7 @@
       const off = 0.2 + Math.random() * 0.6;
       const m = new T.LineSegments(new T.EdgesGeometry(geos[i % 3]), mat);
       const side = Math.random() < 0.5 ? -1 : 1;
-      m.position.set(side * (24 + Math.random() * 140), (Math.random() - 0.5) * 160, -(seg + off) * D);
+      m.position.set(side * (8 + Math.random() * 60), (Math.random() - 0.5) * 60, -(seg + off) * D);
       shards.add(m);
     }
     scene.add(shards);
@@ -160,6 +183,22 @@
     chapters.forEach((ch, i) => { 
       ch.group.position.x = sides[i] || 0; 
       if (i !== 0) ch.group.position.y = isMobile ? 18 : 0;
+    });
+
+    // Rebuild the data spine connectors
+    spineConnectors.clear();
+    const connMat = new T.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.28 });
+    chapters.forEach((ch, i) => {
+      if (i === 0) return; // Skip hero
+      const cx = sides[i] || 0;
+      const cy = isMobile ? 18 : 0;
+      const cz = -i * D;
+      // Draw horizontal beam
+      const points = [];
+      points.push(new T.Vector3(0, cy, cz));
+      points.push(new T.Vector3(cx, cy, cz));
+      const geo = new T.BufferGeometry().setFromPoints(points);
+      spineConnectors.add(new T.Line(geo, connMat));
     });
 
     sections.forEach((s) => {
