@@ -333,6 +333,7 @@ body {
 }
 
 .num {
+  display: none !important;
   position: absolute;
   bottom: 6vh;
   right: 5vw;

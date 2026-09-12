@@ -344,7 +344,7 @@
     // Identify active chapter and local progress through that chapter
     let idx = 0;
     for (let i = 0; i < sections.length; i++) {
-      if (smoothY >= sections[i].top - 1) idx = i;
+      if (smoothY >= sections[i].top - H * 0.95) idx = i;
     }
     const s = sections[idx];
     const denom = Math.max(1, s.height - H);
